@@ -35,7 +35,7 @@ void shrink_to_fit(vector* v)
 void assign(vector* v, iterator first, iterator last)
 {}
 
-void push_back(vector* v, void* data)
+void push_back(vector* v, void const* data)
 {}
 
 void* pop_back(vector* v)
@@ -79,7 +79,12 @@ iterator at(vector const* v, size_t const index)
             };
 }
 
-int compare(iterator const* a, iterator const* b)
+void* value(iterator const i)
+{
+    return NULL;
+}
+
+int compare(iterator const a, iterator const b)
 {
     return 0;
 }

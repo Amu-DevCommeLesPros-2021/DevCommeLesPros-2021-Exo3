@@ -37,7 +37,7 @@ typedef struct iterator
 
 // Crée un vecteur dont la taille des éléments contenus est de 'element_size'.
 // 'num_elements' est le nombre d'éléments pour lequel de la mémoire doit d'ores 
-// et déjà être réservée.
+// et déjà être réservée. La valeur des ces éléments de départ n'est pas définie.
 // 'growth_factor' est le facteur de croissance par lequel il faut redimensionner 
 // le bloc de mémoire quand celui-ci est trop petit. Typiquement 1,5 ou 2,0.
 // Renvoie le vecteur nouvellement créé.
@@ -48,12 +48,12 @@ void destroy(vector* v);
 
 
 // Renvoie le nombre courant d'éléments dans un vecteur.
-size_t size(vector const* v);
+size_t size(vector const v);
 
 // Renvoie le nombre d'éléments qui peuvent être stocké dans le bloc de mémoire.
 // En tout temps, la capacité est égale ou plus grande que le nombre courant
 // d'éléments.
-size_t capacity(vector const* v);
+size_t capacity(vector const v);
 
 
 // Si la capacité est moindre que demandé, redimensionne le bloc de mémoire 
@@ -77,10 +77,10 @@ void shrink_to_fit(vector* v);
 
 // Remplace le contenu de 'v' par les éléments contenus entre 'first' et 'last'. 
 // 'last' n'est pas inclus.
-void assign(vector* v, iterator first, iterator last);
+void assign(vector* v, iterator const first, iterator const last);
 
 // Ajoute un nouvel élément à la fin du vecteur.
-void push_back(vector* v, void* data);
+void push_back(vector* v, void const* data);
 
 // Enlève le dernier élément du vecteur.
 // Renvoie la valeur de ce dernier élément.
@@ -110,10 +110,13 @@ iterator end(vector const* v);
 // 
 iterator at(vector const* v, size_t const index);
 
+// Renvoie la valeur à l'itérateur donné.
+void* value(iterator const i);
+
 // Si 'a' précède 'b', renvoie un nombre négatif.
 // Si 'a' égale 'b', renvoie zéro.
 // Si 'a' succède 'b', renvoie un nombre positif.
-int compare(iterator const* a, iterator const* b);
+int compare(iterator const a, iterator const b);
 
 // Avance un itérateur de 'num_elements' éléments.
 void increment(iterator* i, size_t const num_elements);
