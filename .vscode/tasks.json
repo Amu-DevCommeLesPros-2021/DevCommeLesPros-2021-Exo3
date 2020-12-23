@@ -4,8 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "compilation",
+            "label": "make test",
             "type": "shell",
+            "command": "make build/test",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -13,14 +14,18 @@
             "problemMatcher": "$gcc",
             "presentation": {
                 "reveal": "always",
-                "panel": "dedicated"
-            },
-            "linux": {
-                "command": "gcc main.c liste.c --debug -Wall -Werror -pedantic"
-            },
-            "osx":{
-                "command": "clang main.c liste.c --debug -Wall -Werror -pedantic"
+                "panel": "shared"
             }
+        },
+        {
+            "label": "make clean",
+            "type": "shell",
+            "command": "make clean",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
         }
     ]
 }

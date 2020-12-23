@@ -8,8 +8,8 @@
             "name": "test",
             "type": "cppdbg",
             "request": "launch",
-            "preLaunchTask": "compilation",
-            "program": "${workspaceFolder}/a.out",
+            "preLaunchTask": "make test",
+            "program": "${workspaceFolder}/build/test",
             "args": [],
             "cwd": "${workspaceFolder}",
             "environment": [],
@@ -21,7 +21,7 @@
             "targetArchitecture": "x64",
             "logging": {
                 "moduleLoad": false
-            },
+            }
         }
     ]
 }
