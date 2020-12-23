@@ -1,12 +1,13 @@
-#pragma once
-
 #include "vector.h"
 
 #include <stdlib.h>
 
 vector make_vector(size_t const element_size, size_t const num_elements, float const growth_factor)
 {
-    return (vector){.element_size = element_size, .data = NULL};
+    return (vector){
+            .element_size = element_size, 
+            .data = NULL
+            };
 }
 
 void destroy(vector v)
