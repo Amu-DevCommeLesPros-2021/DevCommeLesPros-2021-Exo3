@@ -58,84 +58,94 @@ int main()
 
     // Tests de la fonction 'make_vector', 'size' et 'capacity'.
     {
-        vector const v0 = make_vector(sizeof(int), 0, growth_factor_doubling);
+        vector v0 = make_vector(sizeof(int), 0, growth_factor_doubling);
 
         // Tests intrusifs.
         TEST((v0.data == NULL));
         TEST((v0.element_size == sizeof(int)));
 
         // Tests avec l'interface.
-        TEST((size(v0) == 0));
-        TEST((capacity(v0) == 0));
+        TEST((size(&v0) == 0));
+        TEST((capacity(&v0) == 0));
         
-        destroy(v0);
+        destroy(&v0);
 
 
-        vector const v1 = make_vector(sizeof(int), 1, growth_factor_doubling);
+        vector v1 = make_vector(sizeof(int), 1, growth_factor_doubling);
 
         TEST((v1.data != NULL));
         TEST((v1.element_size == sizeof(int)));
-        TEST((size(v1) == 1));
-        TEST((capacity(v1) == 1));
+        TEST((size(&v1) == 1));
+        TEST((capacity(&v1) == 1));
 
-        destroy(v1);
+        destroy(&v1);
 
-        vector const v10 = make_vector(sizeof(int), 10, growth_factor_doubling);
+        vector v10 = make_vector(sizeof(int), 10, growth_factor_doubling);
 
         TEST((v10.data != NULL));
         TEST((v10.element_size == sizeof(int)));
-        TEST((size(v10) == 10));
-        TEST((capacity(v10) == 10));
+        TEST((size(&v10) == 10));
+        TEST((capacity(&v10) == 10));
 
-        destroy(v10);
+        destroy(&v10);
     }
 
 
     // Tests de base entre itérateurs.
     {
-        vector const v0 = make_vector(sizeof(int), 0, growth_factor_doubling);
-        vector const v1 = make_vector(sizeof(int), 1, growth_factor_doubling);
-        vector const v10 = make_vector(sizeof(int), 10, growth_factor_doubling);
+        vector v0 = make_vector(sizeof(int), 0, growth_factor_doubling);
+        vector v1 = make_vector(sizeof(int), 1, growth_factor_doubling);
+        vector v10 = make_vector(sizeof(int), 10, growth_factor_doubling);
 
 
-        iterator const b0 = begin(v0);
-        iterator const e0 = end(v0);
-        TEST((compare(b0, e0) == 0));
+        iterator const b0 = begin(&v0);
+        iterator const e0 = end(&v0);
+        TEST((compare(&b0, &e0) == 0));
 
 
-        iterator b1 = begin(v1);
-        iterator const e1 = end(v1);
-        TEST((compare(b1, e1) < 0));
-        TEST((compare(e1, b1) > 0));
+        iterator b1 = begin(&v1);
+        iterator const e1 = end(&v1);
+        TEST((compare(&b1, &e1) < 0));
+        TEST((compare(&e1, &b1) > 0));
 
-        increment(b1, 1);
-        TEST((compare(b1, e1) == 0));
-        decrement(b1, 1);
-        TEST((compare(b1, e1) < 0));
+        increment(&b1, 1);
+        TEST((compare(&b1, &e1) == 0));
+        decrement(&b1, 1);
+        TEST((compare(&b1, &e1) < 0));
 
-        iterator i = at(v1, 0);
-        TEST((compare(i, begin(v1)) == 0));
-        increment(i, 1);
-        TEST((compare(i, end(v1)) == 0));
-        decrement(i, 1);
-        TEST((compare(i, begin(v1)) == 0));
+        iterator i = at(&v1, 0);
+        TEST((compare(&i, &b1) == 0));
+        increment(&i, 1);
+        TEST((compare(&i, &e1) == 0));
+        decrement(&i, 1);
+        TEST((compare(&i, &b1) == 0));
 
 
-        iterator b10 = begin(v10);
-        iterator const e10 = end(v10);
-        TEST((compare(b10, e10) < 0));
-        TEST((compare(e10, b10) > 0));
+        iterator b10 = begin(&v10);
+        iterator const e10 = end(&v10);
+        TEST((compare(&b10, &e10) < 0));
+        TEST((compare(&e10, &b10) > 0));
 
-        increment(b10, 1);
-        TEST((compare(b10, e10) < 0));
-        increment(b10, 1);
-        TEST((compare(b10, e10) < 0));
-        increment(b10, 8);
-        TEST((compare(b10, e10) == 0));
+        increment(&b10, 1);
+        TEST((compare(&b10, &e10) < 0));
+        increment(&b10, 1);
+        TEST((compare(&b10, &e10) < 0));
+        increment(&b10, 8);
+        TEST((compare(&b10, &e10) == 0));
 
-        destroy(v0);
-        destroy(v1);
-        destroy(v10);
+        i = at(&v10, 0);
+        iterator const i1 = at(&v10, 1);
+        iterator const i9 = at(&v10, 9);
+        TEST((compare(&i, &i1) < 0));
+        increment(&i, 1);
+        TEST((compare(&i, &i1) == 0));
+        increment(&i, 8);
+        TEST((compare(&i, &i9) == 0));
+
+
+        destroy(&v0);
+        destroy(&v1);
+        destroy(&v10);
     }
 
     print_summary();

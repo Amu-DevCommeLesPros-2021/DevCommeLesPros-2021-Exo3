@@ -10,52 +10,52 @@ vector make_vector(size_t const element_size, size_t const num_elements, float c
             };
 }
 
-void destroy(vector v)
+void destroy(vector* v)
 {}
 
-size_t capacity(vector const v)
+size_t capacity(vector const* v)
 {
     return 0;
 }
 
-size_t size(vector const v)
+size_t size(vector const* v)
 {
     return 0;
 }
 
-void reserve(vector v, size_t const num_elements)
+void reserve(vector* v, size_t const num_elements)
 {}
 
-void resize(vector v, size_t const num_elements)
+void resize(vector* v, size_t const num_elements)
 {}
 
-void shrink_to_fit(vector v)
+void shrink_to_fit(vector* v)
 {}
 
-void assign(vector v, iterator first, iterator last)
+void assign(vector* v, iterator first, iterator last)
 {}
 
-void push_back(vector v, void* data)
+void push_back(vector* v, void* data)
 {}
 
-void* pop_back(vector v)
+void* pop_back(vector* v)
 {
     return NULL;
 }
 
-void insert(vector v, iterator const i, void* data)
+void insert(vector* v, iterator const i, void const* data)
 {}
 
-void erase(vector v, iterator const i)
+void erase(vector* v, iterator const i)
 {}
 
-void swap(vector a, vector b)
+void swap(vector* a, vector* b)
 {}
 
-void clear(vector v)
+void clear(vector* v)
 {}
 
-iterator begin(vector v)
+iterator begin(vector const* v)
 {
     return (iterator){
             .data = NULL,
@@ -63,7 +63,7 @@ iterator begin(vector v)
             };
 }
 
-iterator end(vector v)
+iterator end(vector const* v)
 {
     return (iterator){
             .data = NULL,
@@ -71,7 +71,7 @@ iterator end(vector v)
             };
 }
 
-iterator at(vector const v, size_t index)
+iterator at(vector const* v, size_t const index)
 {
     return (iterator){
             .data = NULL,
@@ -79,13 +79,13 @@ iterator at(vector const v, size_t index)
             };
 }
 
-int compare(iterator const a, iterator const b)
+int compare(iterator const* a, iterator const* b)
 {
     return 0;
 }
 
-void increment(iterator i, size_t const num_elements)
+void increment(iterator* i, size_t const num_elements)
 {}
 
-void decrement(iterator i, size_t const num_elements)
+void decrement(iterator* i, size_t const num_elements)
 {}
