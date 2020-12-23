@@ -148,6 +148,45 @@ int main()
         destroy(&v10);
     }
 
+    // Tests des fonctions 'push_back' et 'pop_back'.
+    {
+        vector v = make_vector(sizeof(int), 0, growth_factor_doubling);
+
+        int const n22 = 22;
+        push_back(&v, &n22);
+        TEST((size(&v) == 1));
+        TEST((capacity(&v) == 1));
+
+        int r = *(int*)pop_back(&v);
+        TEST((r == n22));
+        TEST((size(&v) == 0));
+        TEST((capacity(&v) == 1));
+
+
+        int const n33 = 33, n0 = 0;
+        push_back(&v, &n33);
+        push_back(&v, &n0);
+        push_back(&v, &n0);
+        push_back(&v, &n0);
+        push_back(&v, &n0);
+        TEST((size(&v) == 5));
+        TEST((capacity(&v) == 8));
+
+        pop_back(&v);
+        pop_back(&v);
+        pop_back(&v);
+        pop_back(&v);
+        r = *(int*)pop_back(&v);
+        TEST((r == n33));
+        TEST((size(&v) == 0));
+        TEST((capacity(&v) == 8));
+    }
+
+    // Tests des fonctions 'resize', 'reserve' et 'shrink_to_fit'.
+    {
+
+    }
+
     print_summary();
 
     return tests_total - tests_successful;

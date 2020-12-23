@@ -46,6 +46,7 @@ vector make_vector(size_t const element_size, size_t const num_elements, float c
 // Libère la mémoire utilsée par le vecteur.
 void destroy(vector* v);
 
+
 // Renvoie le nombre courant d'éléments dans un vecteur.
 size_t size(vector const* v);
 
