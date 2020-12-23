@@ -29,7 +29,7 @@ typedef struct vector
 typedef struct iterator
 {
     void *data;
-    vector *owner;
+    vector const* owner;
 
     // D'autre membres peuvent être ajoutés, si nécessaire.
 } iterator;
@@ -53,10 +53,6 @@ size_t size(vector const v);
 // En tout temps, la capacité est égale ou plus grande que le nombre courant
 // d'éléments.
 size_t capacity(vector const v);
-
-// Renvoie un itérateur correspondant à l'élément à 'index donné.
-// 
-iterator at(vector const v, size_t index);
 
 
 // Si la capacité est moindre que demandé, redimensionne le bloc de mémoire 
@@ -108,6 +104,15 @@ iterator begin(vector v);
 
 // Renvoie un itérateur qui se trouve à un élément au-delà de la fin du vecteur.
 iterator end(vector v);
+
+// Renvoie un itérateur correspondant à l'élément à 'index donné.
+// 
+iterator at(vector const v, size_t index);
+
+// Si 'a' précède 'b', renvoie un nombre négatif.
+// Si 'a' égale 'b', renvoie zéro.
+// Si 'a' succède 'b', renvoie un nombre positif.
+int compare(iterator const a, iterator const b);
 
 // Avance un itérateur de 'num_elements' éléments.
 void increment(iterator i, size_t const num_elements);

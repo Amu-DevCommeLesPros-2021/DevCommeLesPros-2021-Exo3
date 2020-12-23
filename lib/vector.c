@@ -23,11 +23,6 @@ size_t size(vector const v)
     return 0;
 }
 
-iterator at(vector const v, size_t index)
-{
-    return (iterator){.data = NULL, .owner = NULL};
-}
-
 void reserve(vector v, size_t const num_elements)
 {}
 
@@ -62,12 +57,31 @@ void clear(vector v)
 
 iterator begin(vector v)
 {
-    return (iterator){.data = NULL, .owner = NULL};
+    return (iterator){
+            .data = NULL,
+            .owner = NULL
+            };
 }
 
 iterator end(vector v)
 {
-    return (iterator){.data = NULL, .owner = NULL};
+    return (iterator){
+            .data = NULL,
+            .owner = NULL
+            };
+}
+
+iterator at(vector const v, size_t index)
+{
+    return (iterator){
+            .data = NULL,
+            .owner = NULL
+            };
+}
+
+int compare(iterator const a, iterator const b)
+{
+    return 0;
 }
 
 void increment(iterator i, size_t const num_elements)
