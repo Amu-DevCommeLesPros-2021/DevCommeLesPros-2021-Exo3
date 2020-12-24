@@ -75,10 +75,6 @@ void resize(vector* v, size_t const num_elements);
 void shrink_to_fit(vector* v);
 
 
-// Remplace le contenu de 'v' par les éléments contenus entre 'first' et 'last'. 
-// 'last' n'est pas inclus.
-void assign(vector* v, iterator const first, iterator const last);
-
 // Ajoute un nouvel élément à la fin du vecteur.
 void push_back(vector* v, void const* data);
 
@@ -92,9 +88,12 @@ void insert(vector* v, iterator const i, void const* data);
 // Enlève l'élément à l'itérateur donné.
 void erase(vector* v, iterator const i);
 
+// Remplace le contenu de 'v' par les éléments contenus entre 'first' et 'last'. 
+// 'last' n'est pas inclus.
+void assign(vector* v, iterator const first, iterator const last);
+
 // Échange le contenu de deux vecteurs.
 void swap(vector* a, vector* b);
-
 
 // Vide le vecteur de son contenu mais garde le bloc de mémoire intact en réserve.
 void clear(vector* v);
@@ -107,7 +106,6 @@ iterator begin(vector const* v);
 iterator end(vector const* v);
 
 // Renvoie un itérateur correspondant à l'élément à 'index donné.
-// 
 iterator at(vector const* v, size_t const index);
 
 // Renvoie la valeur à l'itérateur donné.

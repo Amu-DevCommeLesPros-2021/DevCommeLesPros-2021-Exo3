@@ -32,9 +32,6 @@ void resize(vector* v, size_t const num_elements)
 void shrink_to_fit(vector* v)
 {}
 
-void assign(vector* v, iterator first, iterator last)
-{}
-
 void push_back(vector* v, void const* data)
 {}
 
@@ -47,6 +44,9 @@ void insert(vector* v, iterator const i, void const* data)
 {}
 
 void erase(vector* v, iterator const i)
+{}
+
+void assign(vector* v, iterator first, iterator last)
 {}
 
 void swap(vector* a, vector* b)

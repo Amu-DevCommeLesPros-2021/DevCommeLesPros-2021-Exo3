@@ -6,7 +6,7 @@
 #include <string.h>
 
 // Nombre total de tests.
-int const tests_total = 66;
+int const tests_total = 85;
 
 // Nombre total de tests exécutés. 
 int tests_executed = 0;
@@ -17,22 +17,22 @@ int tests_successful = 0;
 
 // Incrémente le nombre de test exécutés de 1.
 // Si le test réussi, incrémente le nombre de tests réussis de 1.
-#define TEST(x) tests_executed += 1;    \
+#define TEST(x) printf("%s:%d:0 %*s : ", __FILE__, __LINE__, __LINE__ < 100 ? -41 : -40, #x); \
+                tests_executed += 1;    \
                 if(x)                   \
                 {                       \
                     tests_successful += 1; \
-                    printf("[SUCCES] ");\
+                    printf("[SUCCES]\n");\
                 }                       \
                 else                    \
                 {                       \
-                    printf("[ECHEC ] ");\
-                }                       \
-                printf("%s:%d:0 : %s\n", __FILE__, __LINE__, #x);
+                    printf("[ECHEC]\n");\
+                }
 
 // Affiche le sommaire des résultats des tests.
 void print_summary()
 {
-    printf("---\nNombre de tests\t:%d\nTests executes\t:%2d\nTests reussis\t:%2d\n", tests_total, tests_executed, tests_successful);
+    printf("---\n%-20s : %d\n%-20s : %2d\n%-20s : %2d\n", "Nombre de tests", "Tests executes", "Tests reussis", tests_total, tests_executed, tests_successful);
 }
 
 // Fonction à executer lors d'une segmentation fault.
@@ -206,7 +206,7 @@ int main()
         {
             TEST((*(int*)value(begin(&v)) == n));
             erase(&v, begin(&v));
-            TEST((size(v) == 5 - n));
+            TEST((size(v) == 4 - n));
         }
 
         // À la fin de cette boucle, le vecteur sera [0, 1, 2, 3, 4].
@@ -230,6 +230,61 @@ int main()
         TEST((size(v) == 2));
 
         destroy(&v);
+    }
+
+    // Tests des fonctions 'assign', 'clear' et 'swap'.
+    {
+        vector v = make_vector(sizeof(int), 0, growth_factor_doubling);
+
+        // À la fin de cette boucle, le vecteur sera [0, 1, 2, 3, 4].
+        for(int n = 4; n >= 0; --n)
+        {
+            insert(&v, begin(&v), &n);
+        }
+
+        // Crée 'v_copie' et y affecte l'entièreté de 'v'.
+        vector v_copie = make_vector(sizeof(int), 0, growth_factor_doubling);
+        assign(&v_copie, begin(&v), end(&v));
+
+        // Teste que les valeurs sont les bonnes.
+        TEST((size(v_copie) == 5));
+        for(int n = 0; n != 5; ++n)
+        {
+            TEST((*(int*)value(at(&v_copie, n)) == n));
+        }
+
+        // Après 'clear', la taille est de zéro mais la capacité reste inchangée.
+        size_t const old_capacity = capacity(v);
+        clear(&v);  // v = []
+        TEST((size(v) == 0));
+        TEST((capacity(v) == old_capacity));
+        TEST((compare(begin(&v), end(&v)) == 0));
+
+        // Échange les deux vecteurs.
+        swap(&v, &v_copie);     // v = [0, 1, 2, 3, 4], v_copie = []
+        TEST((size(v) == 5));
+        TEST((size(v_copie) == 0));
+
+        // Affecte les deux dernières valeurs de 'v' à 'v_copie'.
+        iterator i = end(&v);
+        decrement(&i, 2);
+        assign(&v_copie, i, end(&v));
+        TEST((size(v_copie) == 2));
+        TEST((*(int*)value(at(&v_copie, 0)) == 3));
+        TEST((*(int*)value(at(&v_copie, 1)) == 4));
+        // Et 'v' reste inchangé.
+        TEST((size(v) == 5));
+        TEST((*(int*)value(at(&v, 0)) == 0));
+        TEST((*(int*)value(at(&v, 1)) == 1));
+
+        // 'swap' sur un même vecteur ne doit avoir aucun effet.
+        swap(&v_copie, &v_copie);
+        TEST((size(v_copie) == 2));
+        TEST((*(int*)value(at(&v_copie, 0)) == 3));
+        TEST((*(int*)value(at(&v_copie, 1)) == 4));
+
+        destroy(&v);
+        destroy(&v_copie);
     }
 
     // Tests des fonctions 'resize', 'reserve' et 'shrink_to_fit'.
