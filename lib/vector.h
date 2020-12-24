@@ -20,16 +20,17 @@ typedef struct vector
     // D'autre membres peuvent être ajoutés, si nécessaire.
 } vector;
 
-// Un itérateur est l'abstraction d'un index dans un vecteur.
-// Il peut être incrémenté, décrémenté, comparé avec un autre itérateur et 
-// servira d'interface avec les fonctions algorithmiques dans le prochain exercice.
-// Les fonctions qui utilisent les itérateur prennent typiquement deux itérateurs 
+// Un itérateur est l'abstraction d'un index dans un vecteur et fait référence 
+// à un élément.
+// Les fonctions qui utilisent les itérateurs prennent typiquement deux itérateurs 
 // 'first' et 'last' et l'itérateur 'last' n'est pas inclus. Il fait office de 
 // sentinelle. Exprimé mathématiquement : "[first, last[" plutôt que "[first, last]".
+// Il peut être incrémenté, décrémenté, comparé avec un autre itérateur et 
+// servira d'interface avec les fonctions algorithmiques dans le prochain exercice.
 typedef struct iterator
 {
-    void *data;
     vector const* owner;
+    void *element;
 
     // D'autre membres peuvent être ajoutés, si nécessaire.
 } iterator;
@@ -82,14 +83,9 @@ void push_back(vector* v, void const* data);
 // Renvoie la valeur de ce dernier élément.
 void* pop_back(vector* v);
 
-// Ajoute un nouvel élément au vecteur immédiatement après l'itérateur donné.
-void insert(vector* v, iterator const i, void const* data);
-
-// Enlève l'élément à l'itérateur donné.
-void erase(vector* v, iterator const i);
-
 // Remplace le contenu de 'v' par les éléments contenus entre 'first' et 'last'. 
-// 'last' n'est pas inclus.
+// 'last' n'est pas inclus. Les itérateurs 'first' et 'last' font référence à un 
+// vecteur autre que 'v'.
 void assign(vector* v, iterator const first, iterator const last);
 
 // Échange le contenu de deux vecteurs.
@@ -110,6 +106,16 @@ iterator at(vector const* v, size_t const index);
 
 // Renvoie la valeur à l'itérateur donné.
 void* value(iterator const i);
+
+// Affecte la valeur donnée à l'élément auquel l'itérateur fait référence.
+void set(iterator const i, void const* data);
+
+// Insère un nouvel élément au vecteur immédiatement après l'itérateur donné.
+void insert(iterator const i, void const* data);
+
+// Enlève l'élément à l'itérateur donné.
+void erase(iterator const i);
+
 
 // Si 'a' précède 'b', renvoie un nombre négatif.
 // Si 'a' égale 'b', renvoie zéro.

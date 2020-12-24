@@ -13,12 +13,12 @@ vector make_vector(size_t const element_size, size_t const num_elements, float c
 void destroy(vector* v)
 {}
 
-size_t capacity(vector const* v)
+size_t capacity(vector const v)
 {
     return 0;
 }
 
-size_t size(vector const* v)
+size_t size(vector const v)
 {
     return 0;
 }
@@ -40,12 +40,6 @@ void* pop_back(vector* v)
     return NULL;
 }
 
-void insert(vector* v, iterator const i, void const* data)
-{}
-
-void erase(vector* v, iterator const i)
-{}
-
 void assign(vector* v, iterator first, iterator last)
 {}
 
@@ -58,7 +52,7 @@ void clear(vector* v)
 iterator begin(vector const* v)
 {
     return (iterator){
-            .data = NULL,
+            .element = NULL,
             .owner = NULL
             };
 }
@@ -66,7 +60,7 @@ iterator begin(vector const* v)
 iterator end(vector const* v)
 {
     return (iterator){
-            .data = NULL,
+            .element = NULL,
             .owner = NULL
             };
 }
@@ -74,7 +68,7 @@ iterator end(vector const* v)
 iterator at(vector const* v, size_t const index)
 {
     return (iterator){
-            .data = NULL,
+            .element = NULL,
             .owner = NULL
             };
 }
@@ -83,6 +77,16 @@ void* value(iterator const i)
 {
     return NULL;
 }
+
+void set(iterator const i, void const* data)
+{}
+
+void insert(iterator const i, void const* data)
+{}
+
+void erase(iterator const i)
+{}
+
 
 int compare(iterator const a, iterator const b)
 {

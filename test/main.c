@@ -100,11 +100,14 @@ int main()
 
         iterator const b0 = begin(&v0);
         iterator const e0 = end(&v0);
+        TEST((b0.owner == e0.owner));
+        TEST((b0.element == e0.element));
         TEST((compare(b0, e0) == 0));
 
 
         iterator b1 = begin(&v1);
         iterator const e1 = end(&v1);
+        TEST((b1.element + size(v1) * sizeof(int) == e1.element));
         TEST((compare(b1, e1) < 0));
         TEST((compare(e1, b1) > 0));
 
@@ -123,6 +126,7 @@ int main()
 
         iterator b10 = begin(&v10);
         iterator const e10 = end(&v10);
+        TEST((b1.element + size(v10) * sizeof(int) == e1.element));
         TEST((compare(b10, e10) < 0));
         TEST((compare(e10, b10) > 0));
 
@@ -191,7 +195,7 @@ int main()
         // À la fin de cette boucle, le vecteur sera [0, 1, 2, 3, 4].
         for(int n = 4; n >= 0; --n)
         {
-            insert(&v, begin(&v), &n);
+            insert(begin(&v), &n);
             TEST((size(v) == 5 - n));
         }
 
@@ -205,41 +209,44 @@ int main()
         for(int n = 0; n != 5; ++n)
         {
             TEST((*(int*)value(begin(&v)) == n));
-            erase(&v, begin(&v));
+            erase(begin(&v));
             TEST((size(v) == 4 - n));
         }
 
         // À la fin de cette boucle, le vecteur sera [0, 1, 2, 3, 4].
         for(int n = 0; n != 5; ++n)
         {
-            insert(&v, end(&v), &n);
+            insert(end(&v), &n);
         }
         TEST((size(v) == 5));
 
         // Efface aléatoirement certains éléments.
-        erase(&v, at(&v, 2));   // Il nous reste : [0, 1, 3, 4]
+        erase(at(&v, 2));   // Il nous reste : [0, 1, 3, 4]
         TEST((*(int*)value(at(&v, 2)) == 3));
         TEST((size(v) == 4));
 
-        erase(&v, at(&v, 0));   // Il nous reste : [1, 3, 4]
+        erase(at(&v, 0));   // Il nous reste : [1, 3, 4]
         TEST(*(int*)value(begin(&v)) == 1);
         TEST((size(v) == 3));
 
-        erase(&v, at(&v, 0));   // Il nous reste : [3, 4]
+        erase(at(&v, 0));   // Il nous reste : [3, 4]
         TEST(*(int*)value(at(&v, 1)) == 4);
         TEST((size(v) == 2));
 
         destroy(&v);
     }
 
-    // Tests des fonctions 'assign', 'clear' et 'swap'.
+    // Tests des fonctions 'set', 'assign', 'clear' et 'swap'.
     {
-        vector v = make_vector(sizeof(int), 0, growth_factor_doubling);
+        vector v = make_vector(sizeof(int), 5, growth_factor_doubling);
 
         // À la fin de cette boucle, le vecteur sera [0, 1, 2, 3, 4].
-        for(int n = 4; n >= 0; --n)
+        int n = 0;
+        for(iterator i = begin(&v), e = end(&v); compare(i, e) != 0; increment(&i, 1))
         {
-            insert(&v, begin(&v), &n);
+            set(i, &n);
+            TEST((*(int*)value(i) == n));
+            ++n;
         }
 
         // Crée 'v_copie' et y affecte l'entièreté de 'v'.
@@ -287,9 +294,54 @@ int main()
         destroy(&v_copie);
     }
 
-    // Tests des fonctions 'resize', 'reserve' et 'shrink_to_fit'.
+    // Tests des fonctions 'reserve', 'resize' et 'shrink_to_fit'.
     {
+        vector v = make_vector(sizeof(int), 0, growth_factor_doubling);
 
+        reserve(&v, 10);
+        TEST((size(v) == 0));
+        TEST((capacity(v) == 10));
+
+        shrink_to_fit(&v);
+        TEST((size(v) == 0));
+        TEST((capacity(v) == 0));
+
+        reserve(&v, 10);
+        reserve(&v, 3);
+        TEST((size(v) == 0));
+        TEST((capacity(v) == 10));
+
+        resize(&v, 10);
+        TEST((size(v) == 10));
+        TEST((capacity(v) == 10));
+
+        int n = 22;
+        push_back(&v, &n);
+        TEST((size(v) == 11));
+        TEST((capacity(v) == 20));
+
+        shrink_to_fit(&v);
+        TEST((size(v) == 11));
+        TEST((capacity(v) == 20));
+
+        for(n = 1; n != 4; ++n)
+        {
+            set(at(&v, n - 1), &n);
+        }
+        resize(&v, 3);
+        TEST((size(v) == 3));
+        TEST((capacity(v) == 20));
+
+        for(n = 1; n != 4; ++n)
+        {
+            TEST((*(int*)value(at(&v, n - 1)) == n));
+        }
+
+        shrink_to_fit(&v);
+        TEST((size(v) == 3));
+        TEST((capacity(v) == 3));
+
+        destroy(&v);
     }
 
     print_summary();
