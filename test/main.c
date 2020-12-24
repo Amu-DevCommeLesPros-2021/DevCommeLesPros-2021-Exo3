@@ -32,7 +32,7 @@ int tests_successful = 0;
 // Affiche le sommaire des résultats des tests.
 void print_summary()
 {
-    printf("---\n%-20s : %d\n%-20s : %2d\n%-20s : %2d\n", "Nombre de tests", "Tests executes", "Tests reussis", tests_total, tests_executed, tests_successful);
+    printf("---\n%-20s : %d\n%-20s : %2d\n%-20s : %2d\n", "Nombre de tests", tests_total, "Tests executes", tests_executed, "Tests reussis", tests_successful);
 }
 
 // Fonction à executer lors d'une segmentation fault.
@@ -100,7 +100,6 @@ int main()
 
         iterator const b0 = begin(&v0);
         iterator const e0 = end(&v0);
-        TEST((b0.owner == e0.owner));
         TEST((b0.element == e0.element));
         TEST((compare(b0, e0) == 0));
 
@@ -195,7 +194,7 @@ int main()
         // À la fin de cette boucle, le vecteur sera [0, 1, 2, 3, 4].
         for(int n = 4; n >= 0; --n)
         {
-            insert(begin(&v), &n);
+            insert(&v, begin(&v), &n);
             TEST((size(v) == 5 - n));
         }
 
@@ -209,27 +208,27 @@ int main()
         for(int n = 0; n != 5; ++n)
         {
             TEST((*(int*)value(begin(&v)) == n));
-            erase(begin(&v));
+            erase(&v, begin(&v));
             TEST((size(v) == 4 - n));
         }
 
         // À la fin de cette boucle, le vecteur sera [0, 1, 2, 3, 4].
         for(int n = 0; n != 5; ++n)
         {
-            insert(end(&v), &n);
+            insert(&v, end(&v), &n);
         }
         TEST((size(v) == 5));
 
         // Efface aléatoirement certains éléments.
-        erase(at(&v, 2));   // Il nous reste : [0, 1, 3, 4]
+        erase(&v, at(&v, 2));   // Il nous reste : [0, 1, 3, 4]
         TEST((*(int*)value(at(&v, 2)) == 3));
         TEST((size(v) == 4));
 
-        erase(at(&v, 0));   // Il nous reste : [1, 3, 4]
+        erase(&v, at(&v, 0));   // Il nous reste : [1, 3, 4]
         TEST(*(int*)value(begin(&v)) == 1);
         TEST((size(v) == 3));
 
-        erase(at(&v, 0));   // Il nous reste : [3, 4]
+        erase(&v, at(&v, 0));   // Il nous reste : [3, 4]
         TEST(*(int*)value(at(&v, 1)) == 4);
         TEST((size(v) == 2));
 

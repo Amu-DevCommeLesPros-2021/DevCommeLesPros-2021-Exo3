@@ -52,24 +52,21 @@ void clear(vector* v)
 iterator begin(vector const* v)
 {
     return (iterator){
-            .element = NULL,
-            .owner = NULL
+            .element = NULL
             };
 }
 
 iterator end(vector const* v)
 {
     return (iterator){
-            .element = NULL,
-            .owner = NULL
+            .element = NULL
             };
 }
 
 iterator at(vector const* v, size_t const index)
 {
     return (iterator){
-            .element = NULL,
-            .owner = NULL
+            .element = NULL
             };
 }
 
@@ -78,13 +75,13 @@ void* value(iterator const i)
     return NULL;
 }
 
-void set(iterator const i, void const* data)
+void set(iterator i, void const* data)
 {}
 
-void insert(iterator const i, void const* data)
+void insert(vector* v, iterator const i, void const* data)
 {}
 
-void erase(iterator const i)
+void erase(vector* v, iterator const i)
 {}
 
 

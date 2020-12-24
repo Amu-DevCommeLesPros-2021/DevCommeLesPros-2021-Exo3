@@ -29,7 +29,6 @@ typedef struct vector
 // servira d'interface avec les fonctions algorithmiques dans le prochain exercice.
 typedef struct iterator
 {
-    vector const* owner;
     void *element;
 
     // D'autre membres peuvent être ajoutés, si nécessaire.
@@ -108,13 +107,13 @@ iterator at(vector const* v, size_t const index);
 void* value(iterator const i);
 
 // Affecte la valeur donnée à l'élément auquel l'itérateur fait référence.
-void set(iterator const i, void const* data);
+void set(iterator i, void const* data);
 
 // Insère un nouvel élément au vecteur immédiatement après l'itérateur donné.
-void insert(iterator const i, void const* data);
+void insert(vector* v, iterator const i, void const* data);
 
 // Enlève l'élément à l'itérateur donné.
-void erase(iterator const i);
+void erase(vector* v, iterator const i);
 
 
 // Si 'a' précède 'b', renvoie un nombre négatif.
