@@ -63,8 +63,8 @@ size_t capacity(vector const v);
 void reserve(vector* v, size_t const num_elements);
 
 // Si le vecteur contient moins d'éléments que demandé, redimensionne le bloc 
-// de mémoire pour contenir *exactement* 'num_elements' éléments. Le nombre courant 
-// d'éléments reste inchangé.
+// de mémoire pour contenir *exactement* 'num_elements' éléments. La valeur des 
+// nouveaux éléments introduits n'est pas définie. La capacité devient 'num_elements'.
 // Si le vecteur contient plus d'éléments que demandé, seul les 'num_elements' 
 // premiers éléments sont préservés et le nombre courant d'éléments devient 'num_elements'.
 // La capacité reste inchangé.
@@ -81,11 +81,6 @@ void push_back(vector* v, void const* data);
 // Enlève le dernier élément du vecteur.
 // Renvoie la valeur de ce dernier élément.
 void* pop_back(vector* v);
-
-// Remplace le contenu de 'v' par les éléments contenus entre 'first' et 'last'. 
-// 'last' n'est pas inclus. Les itérateurs 'first' et 'last' font référence à un 
-// vecteur autre que 'v'.
-void assign(vector* v, iterator const first, iterator const last);
 
 // Échange le contenu de deux vecteurs.
 void swap(vector* a, vector* b);
@@ -108,6 +103,11 @@ void* value(iterator const i);
 
 // Affecte la valeur donnée à l'élément auquel l'itérateur fait référence.
 void set(iterator i, void const* data);
+
+// Remplace le contenu de 'v' par les éléments contenus entre 'first' et 'last'. 
+// 'last' n'est pas inclus. Les itérateurs 'first' et 'last' font référence à un 
+// vecteur autre que 'v'.
+void assign(vector* v, iterator const first, iterator const last);
 
 // Insère un nouvel élément au vecteur immédiatement après l'itérateur donné.
 void insert(vector* v, iterator const i, void const* data);

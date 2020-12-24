@@ -6,7 +6,7 @@
 #include <string.h>
 
 // Nombre total de tests.
-int const tests_total = 85;
+int const tests_total = 112;
 
 // Nombre total de tests exécutés. 
 int tests_executed = 0;
@@ -125,7 +125,7 @@ int main()
 
         iterator b10 = begin(&v10);
         iterator const e10 = end(&v10);
-        TEST((b1.element + size(v10) * sizeof(int) == e1.element));
+        TEST((b10.element + size(v10) * sizeof(int) == e10.element));
         TEST((compare(b10, e10) < 0));
         TEST((compare(e10, b10) > 0));
 
@@ -321,7 +321,7 @@ int main()
 
         shrink_to_fit(&v);
         TEST((size(v) == 11));
-        TEST((capacity(v) == 20));
+        TEST((capacity(v) == 11));
 
         for(n = 1; n != 4; ++n)
         {
@@ -329,7 +329,7 @@ int main()
         }
         resize(&v, 3);
         TEST((size(v) == 3));
-        TEST((capacity(v) == 20));
+        TEST((capacity(v) == 11));
 
         for(n = 1; n != 4; ++n)
         {
