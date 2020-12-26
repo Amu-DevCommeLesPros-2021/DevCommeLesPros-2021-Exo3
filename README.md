@@ -1,132 +1,161 @@
-# DevCommeLesPros-2020-Exo1
+![](https://github.com/thierryseegers/DevCommeLesPros-2021-Ex3/workflows/Run%20tests/badge.svg)
 
-Modèle de départ pour exercices d'introduction au débogueur et à la gestion de versions.
+# DevCommeLesPros-2021-Exo3
 
-<!-- TOC -->
+Modèle de départ pour exercices d'introduction au travail par équipe avec GitHub et de l'utilisation de l'intégration continue.
 
-- [DevCommeLesPros-2020-Exo1](#devcommelespros-2020-exo1)
-    - [Instructions de départ](#instructions-de-d%C3%A9part)
-    - [Objectif](#objectif)
-    - [Instructions de travail](#instructions-de-travail)
-    - [«J'ai un problème !»](#%C2%ABjai-un-probl%C3%A8me-%C2%BB)
-        - [Comment demander de l'aide](#comment-demander-de-laide)
-        - [Où demander de l'aide](#o%C3%B9-demander-de-laide)
-    - [«Je me suis gouré royalement ! Est-ce que je peux recommencer de zéro ?»](#%C2%ABje-me-suis-gour%C3%A9-royalement--est-ce-que-je-peux-recommencer-de-z%C3%A9ro-%C2%BB)
-    - [Évaluation](#%C3%A9valuation)
+<!-- TOC depthfrom:2 -->
+
+- [Instructions de départ](#instructions-de-d%C3%A9part)
+    - [Pour créer le dépôt un membre du binôme](#pour-cr%C3%A9er-le-d%C3%A9p%C3%B4t-un-membre-du-bin%C3%B4me)
+    - [Pour cloner le dépôt deux membres du binôme](#pour-cloner-le-d%C3%A9p%C3%B4t-deux-membres-du-bin%C3%B4me)
+- [Objectif](#objectif)
+- [Instructions de travail](#instructions-de-travail)
+- [«J'ai un problème !»](#%C2%ABjai-un-probl%C3%A8me-%C2%BB)
+- [Évaluation](#%C3%A9valuation)
 
 <!-- /TOC -->
 
 ## Instructions de départ
 
-Ces intructions présupposent que vous avez déjà suivi les instructions de l'[exercice précédent](https://github.com/thierryseegers/DevCommeLesPros-2020-Exo0) pour la création de votre compte GitHub et l'installation des programmes et des extensions nécessaires.
+Ces intructions présupposent que vous avez déjà suivi les instructions du [zérotième exercice](https://github.com/thierryseegers/DevCommeLesPros-2021-Exo0#instructions-de-d%C3%A9part) pour la création d'un compte GitHub et l'installation des programmes et extensions nécéssaires.
 
-1. Créez votre dépôt sur GitHub en utilisant ce dépôt-ci (https://github.com/thierryseegers/DevCommeLesPros-2020-Exo2) comme modèle.
-    - Suivez ces instructions: https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template.
+Pour cet exercice, vous devez travailler en binôme sur un même dépôt.
+Choisissez qui du binôme créera le dépôt.
+Par la suite, ce même dépôt sera cloné par les deux membres du binôme.
+
+### Pour créer le dépôt (un membre du binôme)
+1. Créez votre dépôt sur github.com en utilisant [ce dépôt-ci](https://github.com/thierryseegers/DevCommeLesPros-2021-Exo3) comme modèle.
+    - Suivez ces instructions : https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template.
     - Choisissez l'option `Private` à l'étape 5.
 1. Ajoutez le professeur comme collaborateur à votre dépôt.
-    - Suivez ces instructions: https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
-        - Nom d'utilisateur à ajouter: `thierryseegers`.
-1. Clonez votre dépôt vers votre espace de travail local.
-    - Suivez ces instructions: https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository
-    - Attention à ne pas cloner https://github.com/thierryseegers/DevCommeLesPros-2020-Exo2 mais bien votre dépôt nouvellement créé.
+    - Suivez ces instructions : https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository.
+    - Nom d'utilisateur à ajouter : `thierryseegers`.
+1. Ajoutez votre co-équipier·ère comme collaborateur à votre dépôt.
+    - Suivez les instructions de l'étape précédente.
+
+### Pour cloner le dépôt (deux membres du binôme)
+1. Clonez le dépôt vers votre espace de travail local.
+    - Suivez ces instructions : https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository
+    - Attention à ne pas cloner https://github.com/thierryseegers/DevCommeLesPros-2021-Exo3 mais bien votre dépôt nouvellement créé.
 1. Lancez Visual Studio Code.
-    - À l'invite de commandes :
+    - À l'invite de commandes:
         - `$ cd [nom de votre dépôt]`
         - `$ code .`
-1. Compilez une première fois le programme.
-    - Menu : `View` > `Command Palette` > `Tasks: Run Build Task`
-1. Lancez le programme à l'invite de commande.
-    - Menu : `Terminal` > `New Terminal`
-    - `$ ./a.out`
-    - Vous verrez s'afficher des résultats de tests et un sommaire de ces résultats.
-    Ces résultats nous indiquent que certains des tests exécutés ont passé, certains ont échoué et que le programme s'est planté en cours de route.
-1. Lancez le programme avec le débogueur.
-    - Menu : `Run` > `Start Debugging`
-        - Le débogueur lance l'application mais se met en pause dès la première ligne de code dans la fonction `main()`.
-1. Affichez les informations de débogage.
-    - Menu : `View` > `Open View...` > `Run`
-        - Vous observez les valeurs de variables déclarés dans le contexte de la fonction `main()`.
-1. Continuez l'exécution du programme jusqu'à sa fin.
-    - Menu : `Run` > `Continue`
-1. Le débogueur s'arrêtera net au moment où le code commet une erreur fatale de manipulation de mémoire et ça ressemblera à ceci :
-![Bebogueur segfault](https://user-images.githubusercontent.com/1580647/102505819-bf0a9500-4082-11eb-8bb6-d39b14596d60.png)
-
-Le programme en soi-même renvoie un code d'erreur correspondant au nombre de tests qui ont échoués ou qui n'ont pas été exécutés. Vous pouvez voir cette valeur (techniquement, la valeur du code d'erreur du dernier programme lancée) à l'invite de commande :
-```
-$ ./a.out
-$ echo $?
-63
-```
 
 ## Objectif
 
-Le programme contient du code pour créer et manipuler des [listes simplement chaînées](https://fr.wikipedia.org/wiki/Liste_cha%C3%AEn%C3%A9e#Liste_simplement_cha%C3%AEn%C3%A9e).
-Il contient trois fichiers :
-- `liste.h` : [fichier d'en-tête](https://en.wikipedia.org/wiki/Include_directive#C/C++) qui déclare les fonctions nécessaires.
-- `liste.c` : fichier source qui [définie](https://stackoverflow.com/a/1410632/1300177) ces fonctions.
-- `main.c` : contient du code dont la responsabilité est de tester toutes ces fonctions par des tests unitaires et d'afficher un compte rendu des tests.
+En C++, la structure de données `vector<>` est une structure qui s'apparent au tableau en C.
+Une différence qui en fait sa force est que le vecteur peut modifier sa propre taille au besoin.
+C'est un tableau dynamique.
+En C, un tableau déclaré comme `int nombres[10]` ne peut contenir que 10 `int`.
+Impossible d'en ajouter un onzième.
+Ce n'est pas le cas avec un vecteur.
+Par exemple, avec la fonction membre `push_back` on peut continuer d'ajouter autant de `int` qu'il est possible.
+La mémoire sous-jacente du vecteur *s'ajustera d'elle-même*.
+Cet exercice vous propose d'implémenter vous-même une imitation de `vector<>` en C.
 
-Les fonctions définies dans le fichier `liste.c` contiennent toutes des erreurs.
-L'objectif est de réparer les erreurs en s'aidant du débogueur.
-Il s'agit de ne plus «essayer et se croiser les doigts» ou de comprendre ce qui se passe avec des `printf()`.
-Le débogueur est là pour accélérer ce processus de compréhension et de réparation du code.
-Du code, qui plus est, n'est pas le vôtre.
+Pour commencer, le programme de test de cet exercice a tout ses tests commentés.
+Il vous faudra les décommenter à mesure qui vous implémenterez les fonctionalités de la bibliothèque `vecteur`.
+Le programme de test :
+- affiche le résultat de chaque test exécutés (`[SUCCES]`, `[ECHEC]` ou `[SEGFAULT]`).
+- affiche en fin d'exécution la fraction du nombre de tests total, de tests exécutés et de tests réussis.
+- retourne comme valeur la différence entre les tests exécutés et les tests réussis (p. ex. 16 - 10 -> `6`).
 
-L'objectif est de réparer toutes les fonctions et que le programme retourne `0`.
+Vous devrez :
+1. Modifier l'URL en tête de ce document `README.md` pour refléter l'URL de votre dépôt.
+    - L'URL doit ressembler à `https://github.com/[nom-de-votre-compte]/[nom-de-votre-depot]/workflows/Run%20tests/badge.svg`.
+    - Cet URL présente un «badge» qui réflete l'état de santé de votre dépôt.
+1. Complétez le fichier `makefile` :
+    - Complétez les cibles déjà définies.
+        - La cible `check` doit dépendre de la cible `build/test` et doit lancer le programme de test.
+        - **Il est impératifs que les cibles `build/libliste.a`, `build/test` et `check` soient définies pour la bonne exécution de cet exercice.**
+    - Ajoutez d'autres cibles à votre guise.
+1. Implémentez correctement toutes les fonctions de la bibliothèque logicielle `vecteur` pour que finalement le programme `build/test` affiche que tout les tests passent et retourne `0` à l'invite de commande.
 
-Il vous est permis: 
-- De modifier l'implémentation des fonctions définies dans le fichier `liste.c`.
-Vous pouvez, si vous le désirez, changer le code du tout au tout mais ce ne devrait pas être nécessaire.
-Le code existant fonctionne disont dans à peu près 50% des cas.
-Seul quelques lignes sont à modifier, ajouter ou éliminer pour atteindre 100%.
+Il vous est permis :
+- De modifier le fichier `README.md` pour modifier l'URL du badge en en-tête.
+- De modifier le fichier `makefile` pour implémenter les cibles prédéfinies.
+- De modifier le fichier `lib/vecteur.h` mais uniquement le contenu des structures `vector` et `iterator`.
+(Voir les commentaires : «`// D'autre membres peuvent être ajoutés, si nécessaire.`»)
+- De modifier le fichier `lib/vecteur.c` afin d'implémenter les fonctions qu'il contient.
+- De modifier le fichier `test/main.c` pour activer le plus de tests possible.
 
-Il ne vous est pas permis:
-- De modifier les signatures des fonctions déclarées dans `fichier.c`. (Leurs types de retour et les types de leurs paramètres ne peuvent être modifiés.)
-- De modifier ni `fichier.h` ni `main.c`.
-(Rien ne vous en empêche au moment de travailler mais comprenez que le script d'évaluation utilisera `main.c` comme vous le voyez.)
+En tout temps:
+- votre code doit réussir 100% des tests activés (même si ce n'est pas l'entièreté des tests) avant d'être intégré dans la branche `master`.
+- le badge apparaissant tout en haut de ce document doit afficher `passing`.
+
 
 ## Instructions de travail
 
+Chacun des membres du binôme devra suivre ces instructions au moins une fois.
+
+1. Créez une nouvelle branche qui servira de branche de travail pour réparer une première suite de tests.
+    - `$ git branch [nom de la branche]`
+    - `$ git checkout [nom de la branche]`
+    - Exemple : `$ git branch implementation-make_vector-size-capacity`, `$ git checkout implementation-make_vector-size-capacity`.
 1. Au fur et à mesure de vos modifications au code, intégrez-les au dépôt local avec une description des modifications apportées.
-    - `> git add main.c`
-    - `> git commit -m "Description des modifications apportées"`
-1. Périodiquement, publiez votre dépôt local à votre dépôt sur GitHub.
-    - `> git push`
+    - `$ git add [fichiers]`
+    - `$ git commit -m "Description des modifications apportées"`
+    - Exemple : `$ git add lib/vecteur.c`, `$ git commit -m "Passe les tests pour make_vector, size et capacity."`
+1. Périodiquement, publiez votre branche de votre dépôt local à votre dépôt sur github.com.
+    - `$ git push origin [nom de la branche]`
+    - Exemple : `$ git push origin implementation-make_vector-size-capacity`.
+1. Lorsqu'une suite de tests est réparée, ouvrez un «Pull Request» sur GitHub pour fusionner la branche de travail à la branche `master`.
+    - Suivez ces instructions : https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
+    - Décrivez les bénéfices apportés par ce Pull Request en suivant les suggestions du modèle («Modification(s) apportée(s)», «Problème(s) résolu(s)», «Vérification(s) et test(s)»).
+1. Attendez que le service d'Intégration Continue lance un compilation de votre base de code et le test.
+    - Vous devriez voir une «fenêtre» apparaître comme celle-ci : 
+    ![Intégration Conitnue enclenchée](https://user-images.githubusercontent.com/1580647/75868664-a806f900-5e08-11ea-8fd5-cc1df9f6ca42.png)
+1. Assurez-vous que le résultat de la compilation et du test automatique par le service d'Intégration Continu soit positif !
+    - La fenêtre précédente devrait devenir comme celle-ci :
+    ![Intégration Conitnue réussie](https://user-images.githubusercontent.com/1580647/75868675-b05f3400-5e08-11ea-93b1-87756c4dc80f.png)
+1. Si le résultat échoue, vous devez réparer le problème sur votre branche dans votre dépôt local et apporter les modifications nécéssaires.
+    - Si la fenêtre vous montre ceci, **vous ne devez pas fusionner votre branche** :
+    ![Intégration Conitnue échoue](https://user-images.githubusercontent.com/1580647/75869715-421b7100-5e0a-11ea-81b1-50854cc01c7b.png)
+1. Demander à votre co-équipier(ère) de passer en revue vos modifications, de suggérer des améliorations si besoin est et, ultimement, d'approuver.
+    - Suivez ces instructions pour demander une revue : https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review
+    - Suivez ces instructions pour faire une revue : https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request
+1. **Quand la compilation et les test automatiques auront réussi et que votre co-équipier(ère) aura approuvé votre Pull Request**, fusionnez la branche de travail sur GitHub.
+    - Suivez ces instructions : https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github
+    - Choisissez `Create a merge commit` à l'étape 3.
+1. Revenez sur la branche `master` de votre dépôt local et synchronisez-la avec la branche `master` de votre dépôt sur GitHub.
+    - `$ git checkout master`
+    - `$ git pull origin master`
 1. Répétez ces étapes jusqu'à ce que tout les tests passent.
 
-Avec la commande `> git log --all --decorate --oneline --graph`, l'historique de votre travail devrait au fil du temps ressembler à ceci  (lire du bas vers le haut):
+Avec la commande `$ git log --all --decorate --graph --pretty=format:"%ar (%an) %s"`, l'historique de votre travail devrait au fil du temps ressembler à ceci (lire du bas vers le haut) :
 
 ```
-* d98fd55 (HEAD -> master) Passe tout les tests de insert().
-* d6c6b98 Passe les test de insert() mais pas le cas special d'index 0.
-* 26354bc Passe les tests de at() et set().
-* 53b3e8d Passe les tests de length().
+*   1 hour ago (origin/master, origin/HEAD, master) Merge pull request #4 from MickeyMouse/implementation-iterateurs
+|\
+| * 3 hours ago (DonalDuck) Passe tout les tests d'itérateurs.
+| * 4 hours ago (DonalDuck) Passe les tests d'itérateurs que le vecteur est de taille 0.
+|/
+*   1 day ago Merge pull request #3 from MickeyMouse/implementation-make_vector-size-capacity
+|\
+| * 1 day ago (Donald Duck) Ne plante plus dans la fonction destroy.
+| * 1 day ago (Donald Duck) Passe les premiers test de size et capacity.
+| * 1 day ago (Donald Duck) Passe les premiers test de creation d'un vecteur.
+|/
+*   2 days ago (Mickey Mouse) Merge pull request #2 from MickeyMouse/implementation-makefile
+|\
+| * 2 days ago (Mickey Mouse) Peut invoquer check pour lancer le programme de test.
+| * 2 days ago (Mickey Mouse) Peut compiler, lancer et déboguer le programme test.
+| * 2 days ago (Mickey Mouse) Peut compiler la bibliothèque libvecteur.a.
+|/
+*   3 days ago (Donald Duck) Merge pull request #1 from MickeyMouse/correction-URL
+|\
+| * 3 days ago (Donald Duck) Corrigé URL du badge en tête du README comme demandé.
+|/
+* 3 days ago Initial commit
 ```
+
+Remarquez que les deux collaborateurs contribuent au même dépôt.
 
 ## «J'ai un problème !»
 
-Il est parfaitement acceptable de demander de l'aide sur Internet.
-Par contre, sur Internet, les questions d'étudiant se reniflent de loin alors soyez honnête dans la formulation de votre question et demandez bien *de l'aide*, ne demandez pas *la réponse*.
-Démontrez ce que vous avez essayé et expliquez où vous bloquez.
-
-### Comment demander de l'aide
-1. https://stackoverflow.com/help/how-to-ask
-1. https://www.reddit.com/r/C_Programming/comments/9l0vuz/asking_for_help_what_to_do_when_your_program/
-1. https://en.wikipedia.org/wiki/Wikipedia:Reference_desk/How_to_ask_a_software_question
-1. http://www.catb.org/%7Eesr/faqs/smart-questions.html
-
-### Où demander de l'aide
-1. https://devcommelespros.slack.com ([invitation](https://join.slack.com/t/devcommelespros/shared_invite/enQtODg1MjI3NTYwODE4LWI2NTE1YTQ2ODg2MmMyYTliYTJkNDcwYTVhOWQ5N2Y0NDkyZGZhZjAwM2Q2NDRjY2Y2NjI3OTU1YjAzZDcwY2I))
-1. https://stackoverflow.com
-1. https://reddit.com/r/C_Programming/
-1. https://reddit.com/r/codinghelp
-
-## «Je me suis gouré royalement ! Est-ce que je peux recommencer de zéro ?»
-
-Oui.
-Pour ce faire, il faut effacer le dépôt et le recréer.
-Suivez ces instruction : https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/deleting-a-repository puis recommencez l'exercice depuis les [Instructions de départ](#instructions-de-d%C3%A9part).
-**Assurez-vos de me ré-inviter comme collaborateur à votre nouveau dépôt !**
+Voyez les indications données dans le [premier exercice](https://github.com/thierryseegers/DevCommeLesPros-2021-Exo1#jai-un-probl%C3%A8me-) à ce sujet.
 
 ## Évaluation
 
@@ -136,4 +165,4 @@ L'évaluation portera sur :
 1. La qualité des modifications apportées.
 
 Attention !
-*Seul le code de votre dépôt sur [GitHub](http://github.com) compte !*
+*Seul le code de votre dépôt sur [GitHub](https://github.com) compte !*
