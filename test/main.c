@@ -79,8 +79,8 @@ int main()
         vector v0 = make_vector(sizeof(int), 0, growth_factor_doubling);
 
         // Tests intrusifs.
-        TEST((v0.data == NULL));
-        TEST((v0.element_size == sizeof(int)));
+        TEST(v0.data == NULL);
+        TEST(v0.element_size == sizeof(int));
 
         // Tests avec l'interface.
         TEST((size(v0) == 0));
@@ -91,8 +91,8 @@ int main()
 
         vector v1 = make_vector(sizeof(int), 1, growth_factor_doubling);
 
-        TEST((v1.data != NULL));
-        TEST((v1.element_size == sizeof(int)));
+        TEST(v1.data != NULL);
+        TEST(v1.element_size == sizeof(int));
         TEST((size(v1) == 1));
         TEST((capacity(v1) == 1));
 
@@ -100,8 +100,8 @@ int main()
 
         vector v10 = make_vector(sizeof(int), 10, growth_factor_doubling);
 
-        TEST((v10.data != NULL));
-        TEST((v10.element_size == sizeof(int)));
+        TEST(v10.data != NULL);
+        TEST(v10.element_size == sizeof(int));
         TEST((size(v10) == 10));
         TEST((capacity(v10) == 10));
 
@@ -118,7 +118,7 @@ int main()
 
         iterator const b0 = begin(&v0);
         iterator const e0 = end(&v0);
-        TEST((b0.element == e0.element));
+        TEST(b0.element == e0.element);
         TEST((compare(b0, e0) == 0));
 
 
@@ -179,7 +179,7 @@ int main()
         TEST((capacity(v) == 1));
 
         int r = *(int*)pop_back(&v);
-        TEST((r == n22));
+        TEST(r == n22);
         TEST((size(v) == 0));
         TEST((capacity(v) == 1));
 
@@ -198,7 +198,7 @@ int main()
         pop_back(&v);
         pop_back(&v);
         r = *(int*)pop_back(&v);
-        TEST((r == n33));
+        TEST(r == n33);
         TEST((size(v) == 0));
         TEST((capacity(v) == 8));
 
@@ -391,7 +391,7 @@ int main()
 
         // On vérifie les infos de la première ville.
         ville_silicon_valley const* b = (ville_silicon_valley*)(begin(&silicon_valley_peninsula).element);
-        TEST((b->index == 1));
+        TEST(b->index == 1);
         TEST((strcmp(b->nom, "Redwood City") == 0));
         TEST((strcmp(b->code_postal, "94063") == 0));
 
