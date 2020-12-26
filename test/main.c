@@ -59,7 +59,7 @@ void segfault_sigaction(int signal, siginfo_t *si, void *arg)
 {
     printf("[SEGFAULT]\n");
     print_summary();
-    exit(tests_total - tests_successful);
+    exit(tests_executed - tests_successful);
 }
 
 int main()
@@ -428,5 +428,5 @@ int main()
 
     print_summary();
 
-    return tests_total - tests_successful;
+    return tests_executed - tests_successful;
 }
