@@ -6,7 +6,7 @@
 #include <string.h>
 
 // Nombre total de tests.
-int const tests_total = 112;
+int const tests_total = 119;
 
 // Nombre total de tests exécutés. 
 int tests_executed = 0;
@@ -18,16 +18,34 @@ int tests_successful = 0;
 // Incrémente le nombre de test exécutés de 1.
 // Si le test réussi, incrémente le nombre de tests réussis de 1.
 #define TEST(x) printf("%s:%d:0 %*s : ", __FILE__, __LINE__, __LINE__ < 100 ? -41 : -40, #x); \
-                tests_executed += 1;    \
-                if(x)                   \
-                {                       \
-                    tests_successful += 1; \
-                    printf("[SUCCES]\n");\
-                }                       \
-                else                    \
-                {                       \
-                    printf("[ECHEC]\n");\
+                tests_executed += 1;        \
+                if(x)                       \
+                {                           \
+                    tests_successful += 1;  \
+                    printf("[SUCCES]\n");   \
+                }                           \
+                else                        \
+                {                           \
+                    printf("[ECHEC]\n");    \
                 }
+
+// Incrémente le nombre de test exécutés de 1.
+// Compare le contenu de deux fichiers aux chemins a et b avec la commande diff.
+// Si les fichiers sont pareils, incrémente le nombre de tests réussis de 1.
+#define TEST_FILE(a, b) printf("%s:%d:0 %s %s %s : ", __FILE__, __LINE__, "diff --text --strip-trailing-cr", a, b);   \
+                        tests_executed += 1;            \
+                        {                               \
+                            int const r = system("diff --text --strip-trailing-cr " a " " b " > /dev/null");    \
+                            if(!WEXITSTATUS(r))         \
+                            {                           \
+                                tests_successful += 1;  \
+                                printf("[SUCCES]\n");   \
+                            }                           \
+                            else                        \
+                            {                           \
+                                printf("[ECHEC]\n");    \
+                            }                           \
+                        }
 
 // Affiche le sommaire des résultats des tests.
 void print_summary()
@@ -341,6 +359,71 @@ int main()
         TEST((capacity(v) == 3));
 
         destroy(&v);
+    }
+
+    // Tests de synthèse et correction d'une base de données simple.
+    {
+#define NOM_VILLE_LONGUEUR_MAX 127
+#define CODE_POSTAL_LONGUEUR 5
+
+        typedef struct ville_silicon_valley
+        {
+            size_t index;
+            char nom[NOM_VILLE_LONGUEUR_MAX + 1];
+            char code_postal[CODE_POSTAL_LONGUEUR + 1];
+        } ville_silicon_valley;
+
+        // Lecture de la BD vers un vecteur en mémoire.
+        vector silicon_valley_peninsula = make_vector(sizeof(ville_silicon_valley), 0, growth_factor_doubling);
+
+        {
+            FILE *db_erronee = fopen("test/db_erronee.txt", "r");
+            ville_silicon_valley ville;
+            while(fscanf(db_erronee, "%zu,%127[^,],%5s", &ville.index, ville.nom, ville.code_postal) == 3)
+            {
+                push_back(&silicon_valley_peninsula, &ville);
+            }
+            fclose(db_erronee);
+        }
+
+        // La liste devrait contenir cinq villes.
+        TEST((size(silicon_valley_peninsula) == 5));
+
+        // On vérifie les infos de la première ville.
+        ville_silicon_valley const* b = (ville_silicon_valley*)(begin(&silicon_valley_peninsula).element);
+        TEST((b->index == 1));
+        TEST((strcmp(b->nom, "Redwood City") == 0));
+        TEST((strcmp(b->code_postal, "94063") == 0));
+
+        // On sait que la quatrième ville est incorrecte. Supprimons-la.
+        erase(&silicon_valley_peninsula, at(&silicon_valley_peninsula, 3));
+
+        // Le vecteur ne devrait plus contenir que quatre villes.
+        TEST((size(silicon_valley_peninsula) == 4));
+
+        // Ajoutons la ville manquante.
+        ville_silicon_valley sunnyvale;
+        sunnyvale.index = 6;
+        strcpy(sunnyvale.nom, "Sunnyvale");
+        strcpy(sunnyvale.code_postal, "94086");
+        push_back(&silicon_valley_peninsula, &sunnyvale);
+
+        // La vecteur devrait contenir cinq villes.
+        TEST((size(silicon_valley_peninsula) == 5));
+
+        // Écriture du vecteur vers un fichier.
+        FILE *db_modifiee = fopen("db_modifiee.txt", "w");
+        for(iterator i = begin(&silicon_valley_peninsula), e = end(&silicon_valley_peninsula); compare(i, e) != 0; increment(&i, 1))
+        {
+            ville_silicon_valley const* ville = (ville_silicon_valley*)i.element;
+            fprintf(db_modifiee, "%zu,%s,%s\n", ville->index, ville->nom, ville->code_postal);
+        }
+
+        fclose(db_modifiee);
+        destroy(&silicon_valley_peninsula);
+
+        // Comparaison de la BD modifiée par le code et de la BD comme elle devrait maintenent être.
+        TEST_FILE("db_modifiee.txt", "test/db_corrigee.txt");
     }
 
     print_summary();
