@@ -1,4 +1,4 @@
-![](https://github.com/thierryseegers/DevCommeLesPros-2021-Ex3/workflows/Run%20tests/badge.svg)
+![](https://github.com/thierryseegers/DevCommeLesPros-2021-Exo3/workflows/Run%20tests/badge.svg)
 
 # DevCommeLesPros-2021-Exo3
 
