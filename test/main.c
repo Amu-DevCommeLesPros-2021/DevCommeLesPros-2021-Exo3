@@ -6,7 +6,7 @@
 #include <string.h>
 
 // Nombre total de tests.
-int const tests_total = 119;
+int const tests_total = 124;
 
 // Nombre total de tests exécutés. 
 int tests_executed = 0;
@@ -171,6 +171,8 @@ int main()
 
     // Tests des fonctions 'push_back' et 'pop_back'.
     {
+        // // Tests sur un vecteur de 'int'.
+
         // vector v = make_vector(sizeof(int), 0, growth_factor_doubling);
 
         // int const n22 = 22;
@@ -203,6 +205,31 @@ int main()
         // TEST(capacity(v) == 8);
 
         // destroy(&v);
+
+
+        // // Tests sur un vecteur de 'char[10]'.
+
+        // char string[10];
+        // vector vs = make_vector(sizeof(string), 0, growth_factor_doubling);
+
+        // push_back(&vs, "pomme");
+        // push_back(&vs, "banane");
+        // push_back(&vs, "ananas");
+
+        // TEST(size(vs) == 3);
+
+        // strcpy(string, pop_back(&vs));
+        // TEST(strcmp("ananas", string) == 0);
+
+        // strcpy(string, pop_back(&vs));
+        // TEST(strcmp("banane", string) == 0);
+
+        // strcpy(string, pop_back(&vs));
+        // TEST(strcmp("pomme", string) == 0);
+
+        // TEST(size(vs) == 0);
+
+        // destroy(&vs);
     }
 
     // Tests des fonctions 'insert', 'erase' et 'value'.
