@@ -11,7 +11,9 @@ Modèle de départ pour exercices d'introduction au travail par équipe avec Git
     - [Pour cloner le dépôt deux membres du binôme](#pour-cloner-le-d%C3%A9p%C3%B4t-deux-membres-du-bin%C3%B4me)
 - [Objectif](#objectif)
 - [Instructions de travail](#instructions-de-travail)
-- [«J'ai un problème !»](#%C2%ABjai-un-probl%C3%A8me-%C2%BB)
+- [Questions-Réponses](#questions-r%C3%A9ponses)
+    - [«J'ai un problème !»](#%C2%ABjai-un-probl%C3%A8me-%C2%BB)
+    - [«J'ai des problèmes avec la manipulation de mémoire dynamique.»](#%C2%ABjai-des-probl%C3%A8mes-avec-la-manipulation-de-m%C3%A9moire-dynamique%C2%BB)
 - [Évaluation](#%C3%A9valuation)
 
 <!-- /TOC -->
@@ -155,9 +157,18 @@ Avec la commande `$ git log --all --decorate --graph --pretty=format:"%ar (%an) 
 
 Remarquez que les deux collaborateurs contribuent au même dépôt.
 
-## «J'ai un problème !»
+## Questions-Réponses
+
+### «J'ai un problème !»
 
 Voyez les indications données dans le [premier exercice](https://github.com/thierryseegers/DevCommeLesPros-2021-Exo1#jai-un-probl%C3%A8me-) à ce sujet.
+
+### «J'ai des problèmes avec la manipulation de mémoire dynamique.»
+
+Un excellent outil disponible pour Linux est [`valgrind`](https://valgrind.org/).
+En autres choses, `valgrind` peut faire une analyse de possibles erreurs de mémoires de notre programme.
+Ce n'est pas une analsye du code mais une analyse ex post facto une fois que notre programme a terminé son exécution.
+Un bon petit tuto se trouve [ici](https://stackoverflow.com/questions/5134891/how-do-i-use-valgrind-to-find-memory-leaks).
 
 ## Évaluation
 
