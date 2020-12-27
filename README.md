@@ -66,24 +66,26 @@ Vous devrez :
 1. Modifier l'URL en tête de ce document `README.md` pour refléter l'URL de votre dépôt.
     - L'URL doit ressembler à `https://github.com/[nom-de-votre-compte]/[nom-de-votre-depot]/workflows/Run%20tests/badge.svg`.
     - Cet URL présente un «badge» qui réflete l'état de santé de votre dépôt.
-1. Complétez le fichier `makefile` :
-    - Complétez les cibles déjà définies.
+1. Compléter le fichier `makefile` :
+    - Compléter les cibles déjà définies.
         - La cible `check` doit dépendre de la cible `build/test` et doit lancer le programme de test.
         - **Il est impératifs que les cibles `build/libliste.a`, `build/test` et `check` soient définies pour la bonne exécution de cet exercice.**
-    - Ajoutez d'autres cibles à votre guise.
-1. Implémentez correctement toutes les fonctions de la bibliothèque logicielle `vecteur` pour que finalement le programme `build/test` affiche que tout les tests passent et retourne `0` à l'invite de commande.
+    - Ajouter d'autres cibles à votre guise.
+1. Implémenter correctement toutes les fonctions de la bibliothèque logicielle `vecteur` pour que le programme `build/test` affiche que tout les tests passent et retourne `0` à l'invite de commande.
 
 Il vous est permis :
 - De modifier le fichier `README.md` pour modifier l'URL du badge en en-tête.
-- De modifier le fichier `makefile` pour implémenter les cibles prédéfinies.
-- De modifier le fichier `lib/vecteur.h` mais uniquement le contenu des structures `vector` et `iterator`.
-(Voir les commentaires : «`// D'autre membres peuvent être ajoutés, si nécessaire.`»)
-- De modifier le fichier `lib/vecteur.c` afin d'implémenter les fonctions qu'il contient.
-- De modifier le fichier `test/main.c` pour activer le plus de tests possible.
+- De modifier le fichier `makefile` pour compiler et lier les cibles prédéfinies et ajouter d'autres cibles si nécessaire.
+- De modifier le fichier `lib/vector_types.h` pour ajouter au contenu des structures `vector` et `iterator` comme nécessaire.
+- De modifier le fichier `lib/vector_api.c` afin d'implémenter les fonctions qu'il contient.
+- De modifier le fichier `test/main.c` pour activer (décommenter) le plus de tests possible.
+
+Il ne vous est pas permis :
+- De modifier les fichiers `lib/vector.h` et `lib/vector_api.h`.
 
 En tout temps:
-- votre code doit réussir 100% des tests activés (même si ce n'est pas l'entièreté des tests) avant d'être intégré dans la branche `master`.
-- le badge apparaissant tout en haut de ce document doit afficher `passing`.
+- Votre code doit réussir 100% des tests activés (décommentés), même si ce n'est pas l'entièreté des tests, avant d'être intégré dans la branche `master`.
+- Le badge apparaissant tout en haut de ce document doit afficher `passing`.
 
 
 ## Instructions de travail
@@ -105,7 +107,7 @@ Chacun des membres du binôme devra suivre ces instructions au moins une fois.
     - Suivez ces instructions : https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
     - Décrivez les bénéfices apportés par ce Pull Request en suivant les suggestions du modèle («Modification(s) apportée(s)», «Problème(s) résolu(s)», «Vérification(s) et test(s)»).
 1. Attendez que le service d'Intégration Continue lance un compilation de votre base de code et le test.
-    - Vous devriez voir une «fenêtre» apparaître comme celle-ci : 
+    - Vous devriez voir une «fenêtre» apparaître comme celle-ci :
     ![Intégration Conitnue enclenchée](https://user-images.githubusercontent.com/1580647/75868664-a806f900-5e08-11ea-8fd5-cc1df9f6ca42.png)
 1. Assurez-vous que le résultat de la compilation et du test automatique par le service d'Intégration Continu soit positif !
     - La fenêtre précédente devrait devenir comme celle-ci :
@@ -162,6 +164,7 @@ Voyez les indications données dans le [premier exercice](https://github.com/thi
 L'évaluation portera sur :
 1. Le suivi des instructions de travail.
 1. Le nombre de tests réussis.
+    - Vos fichiers `vector_types.h` et `vector_api.c` seront compilés et liés avec le fichier `vector_api.h` intact et avec le fichier `main.c` ayant tout ses tests activés (décommentés).
 1. La qualité des modifications apportées.
 
 Attention !

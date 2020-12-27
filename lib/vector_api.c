@@ -1,4 +1,6 @@
-#include "vector.h"
+#include "vector_api.h"
+
+#include "vector_types.h"
 
 #include <stdlib.h>
 
