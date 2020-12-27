@@ -15,24 +15,15 @@ vector make_vector(size_t const element_size, size_t const num_elements, float c
 void destroy(vector* v)
 {}
 
-size_t capacity(vector const v)
-{
-    return 0;
-}
-
 size_t size(vector const v)
 {
     return 0;
 }
 
-void reserve(vector* v, size_t const num_elements)
-{}
-
-void resize(vector* v, size_t const num_elements)
-{}
-
-void shrink_to_fit(vector* v)
-{}
+size_t capacity(vector const v)
+{
+    return 0;
+}
 
 void push_back(vector* v, void const* data)
 {}
@@ -42,13 +33,28 @@ void* pop_back(vector* v)
     return NULL;
 }
 
+void insert(vector* v, iterator const i, void const* data)
+{}
+
+void erase(vector* v, iterator const i)
+{}
+
 void assign(vector* v, iterator first, iterator last)
+{}
+
+void clear(vector* v)
 {}
 
 void swap(vector* a, vector* b)
 {}
 
-void clear(vector* v)
+void reserve(vector* v, size_t const num_elements)
+{}
+
+void resize(vector* v, size_t const num_elements)
+{}
+
+void shrink_to_fit(vector* v)
 {}
 
 iterator begin(vector const* v)
@@ -72,21 +78,6 @@ iterator at(vector const* v, size_t const index)
             };
 }
 
-void* value(iterator const i)
-{
-    return NULL;
-}
-
-void set(iterator i, void const* data)
-{}
-
-void insert(vector* v, iterator const i, void const* data)
-{}
-
-void erase(vector* v, iterator const i)
-{}
-
-
 int compare(iterator const a, iterator const b)
 {
     return 0;
@@ -96,4 +87,12 @@ void increment(iterator* i, size_t const num_elements)
 {}
 
 void decrement(iterator* i, size_t const num_elements)
+{}
+
+void* value(iterator const i)
+{
+    return NULL;
+}
+
+void set(iterator i, void const* data)
 {}
