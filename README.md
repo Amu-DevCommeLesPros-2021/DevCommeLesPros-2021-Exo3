@@ -69,14 +69,14 @@ Vous devrez :
 1. Compléter le fichier `makefile` :
     - Compléter les cibles déjà définies.
         - La cible `check` doit dépendre de la cible `build/test` et doit lancer le programme de test.
-        - **Il est impératifs que les cibles `build/libliste.a`, `build/test` et `check` soient définies pour la bonne exécution de cet exercice.**
+        - **Il est impératifs que les cibles `build/libvector.a`, `build/test` et `check` soient définies pour la bonne exécution de cet exercice.**
     - Ajouter d'autres cibles à votre guise.
-1. Implémenter correctement toutes les fonctions de la bibliothèque logicielle `vecteur` pour que le programme `build/test` affiche que tout les tests passent et retourne `0` à l'invite de commande.
+1. Implémenter correctement toutes les fonctions de la bibliothèque logicielle `libvector` pour que le programme `build/test` affiche que tout les tests passent et retourne `0` à l'invite de commande.
 
 Il vous est permis :
 - De modifier le fichier `README.md` pour modifier l'URL du badge en en-tête.
 - De modifier le fichier `makefile` pour compiler et lier les cibles prédéfinies et ajouter d'autres cibles si nécessaire.
-- De modifier le fichier `lib/vector_types.h` pour ajouter au contenu des structures `vector` et `iterator` comme nécessaire.
+- De modifier le fichier `lib/vector_types.h` pour ajouter au contenu des structures `vector` et `iterator` si nécessaire.
 - De modifier le fichier `lib/vector_api.c` afin d'implémenter les fonctions qu'il contient.
 - De modifier le fichier `test/main.c` pour activer (décommenter) le plus de tests possible.
 
