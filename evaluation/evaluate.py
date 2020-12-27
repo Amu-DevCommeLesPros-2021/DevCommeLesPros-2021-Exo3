@@ -3,6 +3,7 @@ import datetime
 import itertools
 import logging
 import os
+import shutil
 import subprocess
 import sys
 
@@ -27,8 +28,6 @@ if ARGS.timestamp:
         print('Bad timestamp', sys.exc_info())
         sys.exit(100)
 
-subprocess.run('gcc -g -c ../main.c -o main.o', shell=True)
-
 def evaluate_repo(name, timestamp=None):
     """Clone, compile and run tests on the given repo."""
     try:
@@ -52,12 +51,12 @@ def evaluate_repo(name, timestamp=None):
 
             subprocess.run(['git checkout ' + rev_list_cmd.stdout], cwd=local_depot_path, shell=True, check=True, stderr=subprocess.PIPE)
 
-        # Compile liste.c and link with main.o.
-        subprocess.run('gcc --debug -I ../.. -c liste.c -o liste.o', cwd=local_depot_path, shell=True, check=True, stderr=subprocess.PIPE, text=True)
-        subprocess.run('gcc --debug ../main.o liste.o -o a.out', cwd=local_depot_path, shell=True, check=True, stderr=subprocess.PIPE, text=True)
+        # Copy main.c with all its tests enabled and vector_api.h to repo.
+        shutil.copy('main.c', local_depot_path + '/test')
+        shutil.copy('../lib/vector_api.h', local_depot_path + '/lib')
 
-        # Launch tested program.
-        run_program_cmd = subprocess.run('./a.out', cwd=local_depot_path, shell=True, capture_output=True, text=True, timeout=3)
+        # Invoke make check.
+        run_program_cmd = subprocess.run('make check', cwd=local_depot_path, shell=True, check=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE, text=True, timeout=3)
 
         # Show results.
         if ARGS.show_output:
