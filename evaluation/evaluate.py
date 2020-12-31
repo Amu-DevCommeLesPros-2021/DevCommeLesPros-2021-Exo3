@@ -107,8 +107,8 @@ if __name__ == "__main__":
 
             moss = mosspy.Moss(ARGS.mossid, 'c')
             moss.setIgnoreLimit(3)
-            moss.addBaseFile('../liste.c')
-            moss.addFilesByWildcard('./**/liste.c')
+            moss.addBaseFile('../lib/vector_api.c')
+            moss.addFilesByWildcard('./**/vector_api.c')
             url = moss.send()
             print(url)
             if os.path.exists('moss/'):
