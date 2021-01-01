@@ -58,11 +58,11 @@ La mémoire sous-jacente du vecteur *s'ajustera d'elle-même*.
 Cet exercice vous propose d'implémenter vous-même une imitation de `vector<>` en C.
 
 Pour commencer, le programme de test de cet exercice a tout ses tests commentés.
-Il vous faudra les décommenter à mesure qui vous implémenterez les fonctionalités de la bibliothèque `vecteur`.
+Il vous faudra les décommenter à mesure qui vous implémenterez les fonctionalités de la bibliothèque `libvector`.
 Le programme de test :
-- affiche le résultat de chaque test exécutés (`[SUCCES]`, `[ECHEC]` ou `[SEGFAULT]`).
-- affiche en fin d'exécution la fraction du nombre de tests total, de tests exécutés et de tests réussis.
-- retourne comme valeur la différence entre les tests exécutés et les tests réussis (p. ex. 16 - 10 -> `6`).
+- affiche le résultat de chaque test exécutés : `[SUCCES]`, `[ECHEC]` ou `[SEGFAULT]` (à `[SEGFAULT]`, le programme est stoppé).
+- affiche en fin d'exécution le nombre de tests total, de tests exécutés et de tests réussis.
+- retourne comme valeur la différence entre le nombre de tests total et de tests réussis (p. ex. 16 - 10 -> `6`).
 
 Vous devrez :
 1. Modifier l'URL en tête de ce document `README.md` pour refléter l'URL de votre dépôt.
@@ -83,7 +83,7 @@ Il vous est permis :
 - De modifier le fichier `test/main.c` pour activer (décommenter) le plus de tests possible.
 
 Il ne vous est pas permis :
-- De modifier les fichiers `lib/vector.h` et `lib/vector_api.h`.
+- De modifier les fichiers d'en-tête `lib/vector.h` et `lib/vector_api.h`.
 
 En tout temps:
 - Votre code doit réussir 100% des tests activés (décommentés), même si ce n'est pas l'entièreté des tests, avant d'être intégré dans la branche `master`.
@@ -174,8 +174,9 @@ Un bon petit tuto se trouve [ici](https://stackoverflow.com/questions/5134891/ho
 
 L'évaluation portera sur :
 1. Le suivi des instructions de travail.
+    - Je dois voir des contributions à la base de code par tout les membres de votre groupe.
 1. Le nombre de tests réussis.
-    - Vos fichiers `vector_types.h` et `vector_api.c` seront compilés et liés avec le fichier `vector_api.h` intact et avec le fichier `main.c` ayant tout ses tests activés (décommentés).
+    - Vos fichiers `lib/vector_types.h` et `lib/vector_api.c` seront compilés et liés avec le fichier `lib/vector_api.h` intact et avec le fichier `test/main.c` ayant tout ses tests activés (décommentés).
 1. La qualité des modifications apportées.
 
 Attention !
