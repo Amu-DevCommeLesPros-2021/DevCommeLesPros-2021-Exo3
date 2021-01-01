@@ -35,6 +35,7 @@ Par la suite, ce même dépôt sera cloné par les deux membres du binôme.
     - Nom d'utilisateur à ajouter : `thierryseegers`.
 1. Ajoutez votre co-équipier·ère comme collaborateur à votre dépôt.
     - Suivez les instructions de l'étape précédente.
+    - Votre co-équipier·ère recevra un mail avec un lien pour accepter votre invitation.
 
 ### Pour cloner le dépôt (deux membres du binôme)
 1. Clonez le dépôt vers votre espace de travail local.
