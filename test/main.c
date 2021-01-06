@@ -393,5 +393,5 @@ int main()
         // TEST_FILE("db_modifiee.txt", "test/db_corrigee.txt");
     }
 
-    return tests_executed - tests_successful;
+    return tests_total - tests_successful;
 }
