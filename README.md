@@ -1,4 +1,4 @@
-![](https://github.com/thierryseegers/DevCommeLesPros-2021-Exo3/workflows/Run%20tests/badge.svg)
+![](https://github.com/Amu-DevCommeLesPros-2021/DevCommeLesPros-2021-Exo3/workflows/Run%20tests/badge.svg)
 
 # DevCommeLesPros-2021-Exo3
 
@@ -6,7 +6,7 @@ Modèle de départ pour exercices d'introduction au travail par équipe avec Git
 
 <!-- TOC depthfrom:2 -->
 
-- [Instructions de départ](#instructions-de-d%C3%A9part)
+- [Préparation](#pr%C3%A9paration)
     - [Pour créer le dépôt un membre du binôme](#pour-cr%C3%A9er-le-d%C3%A9p%C3%B4t-un-membre-du-bin%C3%B4me)
     - [Pour cloner le dépôt deux membres du binôme](#pour-cloner-le-d%C3%A9p%C3%B4t-deux-membres-du-bin%C3%B4me)
 - [Objectif](#objectif)
@@ -18,20 +18,20 @@ Modèle de départ pour exercices d'introduction au travail par équipe avec Git
 
 <!-- /TOC -->
 
-## Instructions de départ
+## Préparation
 
-Ces intructions présupposent que vous avez déjà suivi les instructions du [zérotième exercice](https://github.com/thierryseegers/DevCommeLesPros-2021-Exo0#instructions-de-d%C3%A9part) pour la création d'un compte GitHub et l'installation des programmes et extensions nécéssaires.
+Ces intructions présupposent que vous avez déjà suivi les instructions du [zérotième exercice](https://github.com/Amu-DevCommeLesPros-2021/DevCommeLesPros-2021-Exo0) pour la création d'un compte GitHub et l'installation des programmes et extensions nécéssaires.
 
 Pour cet exercice, vous devez travailler en binôme sur un même dépôt.
 Choisissez qui du binôme créera le dépôt.
 Par la suite, ce même dépôt sera cloné par les deux membres du binôme.
 
 ### Pour créer le dépôt (un membre du binôme)
-1. Créez votre dépôt sur github.com en utilisant [ce dépôt-ci](https://github.com/thierryseegers/DevCommeLesPros-2021-Exo3) comme modèle.
-    - Suivez ces instructions : https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template.
+1. Créez votre dépôt sur github.com en utilisant [ce dépôt-ci](https://github.com/Amu-DevCommeLesPros-2021/DevCommeLesPros-2021-Exo3) comme modèle.
+    - Suivez [ces instructions](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
     - Choisissez l'option `Private` à l'étape 5.
 1. Ajoutez le professeur comme collaborateur à votre dépôt.
-    - Suivez ces instructions : https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository.
+    - Suivez [ces instructions](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository).
     - Nom d'utilisateur à ajouter : `thierryseegers`.
 1. Ajoutez votre co-équipier·ère comme collaborateur à votre dépôt.
     - Suivez les instructions de l'étape précédente.
@@ -39,8 +39,8 @@ Par la suite, ce même dépôt sera cloné par les deux membres du binôme.
 
 ### Pour cloner le dépôt (deux membres du binôme)
 1. Clonez le dépôt vers votre espace de travail local.
-    - Suivez ces instructions : https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository
-    - Attention à ne pas cloner https://github.com/thierryseegers/DevCommeLesPros-2021-Exo3 mais bien votre dépôt nouvellement créé.
+    - Suivez [ces instructions](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+    - Attention à ne pas cloner https://github.com/Amu-DevCommeLesPros-2021/DevCommeLesPros-2021-Exo3 mais bien votre dépôt nouvellement créé.
 1. Lancez Visual Studio Code.
     - À l'invite de commandes:
         - `$ cd [nom de votre dépôt]`
@@ -58,12 +58,8 @@ Par exemple, avec la fonction membre `push_back` on peut continuer d'ajouter aut
 La mémoire sous-jacente du vecteur *s'ajustera d'elle-même*.
 Cet exercice vous propose d'implémenter vous-même une imitation de `vector<>` en C.
 
-Pour commencer, le programme de test de cet exercice a tout ses tests commentés.
+Pour commencer, le programme de test de cet exercice a tous ses tests commentés.
 Il vous faudra les décommenter à mesure qui vous implémenterez les fonctionalités de la bibliothèque `libvector`.
-Le programme de test :
-- affiche le résultat de chaque test exécutés : `[SUCCES]`, `[ECHEC]` ou `[SEGFAULT]` (à `[SEGFAULT]`, le programme est stoppé).
-- affiche en fin d'exécution le nombre de tests total, de tests exécutés et de tests réussis.
-- retourne comme valeur la différence entre le nombre de tests total et de tests réussis (p. ex. 16 - 10 -> `6`).
 
 Vous devrez :
 1. Modifier l'URL en tête de ce document `README.md` pour refléter l'URL de votre dépôt.
@@ -74,7 +70,7 @@ Vous devrez :
         - La cible `check` doit dépendre de la cible `build/test` et doit lancer le programme de test.
         - **Il est impératifs que les cibles `build/libvector.a`, `build/test` et `check` soient définies pour la bonne exécution de cet exercice.**
     - Ajouter d'autres cibles à votre guise.
-1. Implémenter correctement toutes les fonctions de la bibliothèque logicielle `libvector` pour que le programme `build/test` affiche que tout les tests passent et retourne `0` à l'invite de commande.
+1. Implémenter correctement toutes les fonctions de la bibliothèque logicielle `libvector` pour que le programme `build/test` affiche que tous les tests passent et retourne `0` à l'invite de commande.
 
 Il vous est permis :
 - De modifier le fichier `README.md` pour modifier l'URL du badge en en-tête.
@@ -107,7 +103,7 @@ Chacun des membres du binôme devra suivre ces instructions au moins une fois.
     - `$ git push origin [nom de la branche]`
     - Exemple : `$ git push origin implementation-make_vector-size-capacity`.
 1. Lorsqu'une suite de tests est réparée, ouvrez un «Pull Request» sur GitHub pour fusionner la branche de travail à la branche `master`.
-    - Suivez ces instructions : https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
+    - Suivez [ces instructions](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request).
     - Décrivez les bénéfices apportés par ce Pull Request en suivant les suggestions du modèle («Modification(s) apportée(s)», «Problème(s) résolu(s)», «Vérification(s) et test(s)»).
 1. Attendez que le service d'Intégration Continue lance un compilation de votre base de code et le test.
     - Vous devriez voir une «fenêtre» apparaître comme celle-ci :
@@ -119,22 +115,22 @@ Chacun des membres du binôme devra suivre ces instructions au moins une fois.
     - Si la fenêtre vous montre ceci, **vous ne devez pas fusionner votre branche** :
     ![Intégration Conitnue échoue](https://user-images.githubusercontent.com/1580647/75869715-421b7100-5e0a-11ea-81b1-50854cc01c7b.png)
 1. Demander à votre co-équipier(ère) de passer en revue vos modifications, de suggérer des améliorations si besoin est et, ultimement, d'approuver.
-    - Suivez ces instructions pour demander une revue : https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review
-    - Suivez ces instructions pour faire une revue : https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request
+    - Suivez [ces instructions](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review) pour demander une révision.
+    - Suivez [ces instructions](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request) quand on vous demande de faire une révision.
 1. **Quand la compilation et les test automatiques auront réussi et que votre co-équipier(ère) aura approuvé votre Pull Request**, fusionnez la branche de travail sur GitHub.
-    - Suivez ces instructions : https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github
+    - Suivez [ces instructions](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github).
     - Choisissez `Create a merge commit` à l'étape 3.
 1. Revenez sur la branche `master` de votre dépôt local et synchronisez-la avec la branche `master` de votre dépôt sur GitHub.
     - `$ git checkout master`
     - `$ git pull origin master`
-1. Répétez ces étapes jusqu'à ce que tout les tests passent.
+1. Répétez ces étapes jusqu'à ce que tous les tests passent.
 
 Avec la commande `$ git log --all --decorate --graph --pretty=format:"%ar (%an) %s"`, l'historique de votre travail devrait au fil du temps ressembler à ceci (lire du bas vers le haut) :
 
 ```
 *   1 hour ago (origin/master, origin/HEAD, master) Merge pull request #4 from MickeyMouse/implementation-iterateurs
 |\
-| * 3 hours ago (DonalDuck) Passe tout les tests d'itérateurs.
+| * 3 hours ago (DonalDuck) Passe tous les tests d'itérateurs.
 | * 4 hours ago (DonalDuck) Passe les tests d'itérateurs que le vecteur est de taille 0.
 |/
 *   1 day ago Merge pull request #3 from MickeyMouse/implementation-make_vector-size-capacity
@@ -162,7 +158,7 @@ Remarquez que les deux collaborateurs contribuent au même dépôt.
 
 ### «J'ai un problème !»
 
-Voyez les indications données dans le [premier exercice](https://github.com/thierryseegers/DevCommeLesPros-2021-Exo1#jai-un-probl%C3%A8me-) à ce sujet.
+Voyez les indications données dans le [premier exercice](https://github.com/Amu-DevCommeLesPros-2021/DevCommeLesPros-2021-Exo1#jai-un-probl%C3%A8me-) à ce sujet.
 
 ### «J'ai des problèmes avec la manipulation de mémoire dynamique.»
 
@@ -175,9 +171,9 @@ Un bon petit tuto se trouve [ici](https://stackoverflow.com/questions/5134891/ho
 
 L'évaluation portera sur :
 1. Le suivi des instructions de travail.
-    - Je dois voir des contributions à la base de code par tout les membres de votre groupe.
+    - Je dois voir des contributions à la base de code par tous les membres de votre groupe.
 1. Le nombre de tests réussis.
-    - Vos fichiers `lib/vector_types.h` et `lib/vector_api.c` seront compilés et liés avec le fichier `lib/vector_api.h` intact et avec le fichier `test/main.c` ayant tout ses tests activés (décommentés).
+    - Vos fichiers `lib/vector_types.h` et `lib/vector_api.c` seront compilés et liés avec le fichier `lib/vector_api.h` intact et avec le fichier `test/main.c` ayant tous ses tests activés (décommentés).
 1. La qualité des modifications apportées.
 
 Attention !
