@@ -11,10 +11,10 @@ Modèle de départ pour exercices d'introduction au travail par équipe avec Git
     - [Pour cloner le dépôt deux membres du binôme](#pour-cloner-le-d%C3%A9p%C3%B4t-deux-membres-du-bin%C3%B4me)
 - [Objectif](#objectif)
 - [Instructions de travail](#instructions-de-travail)
+- [Évaluation](#%C3%A9valuation)
 - [Questions-Réponses](#questions-r%C3%A9ponses)
     - [«J'ai un problème !»](#%C2%ABjai-un-probl%C3%A8me-%C2%BB)
     - [«J'ai des problèmes avec la manipulation de mémoire dynamique.»](#%C2%ABjai-des-probl%C3%A8mes-avec-la-manipulation-de-m%C3%A9moire-dynamique%C2%BB)
-- [Évaluation](#%C3%A9valuation)
 
 <!-- /TOC -->
 
@@ -70,22 +70,7 @@ Vous devrez :
         - La cible `check` doit dépendre de la cible `build/test` et doit lancer le programme de test.
         - **Il est impératifs que les cibles `build/libvector.a`, `build/test` et `check` soient définies pour la bonne exécution de cet exercice.**
     - Ajouter d'autres cibles à votre guise.
-1. Implémenter correctement toutes les fonctions de la bibliothèque logicielle `libvector` pour que le programme `build/test` affiche que tous les tests passent et retourne `0` à l'invite de commande.
-
-Il vous est permis :
-- De modifier le fichier `README.md` pour modifier l'URL du badge en en-tête.
-- De modifier le fichier `makefile` pour compiler et lier les cibles prédéfinies et ajouter d'autres cibles si nécessaire.
-- De modifier le fichier `lib/vector_types.h` pour ajouter au contenu des structures `vector` et `iterator` si nécessaire.
-- De modifier le fichier `lib/vector_api.c` afin d'implémenter les fonctions qu'il contient.
-- De modifier le fichier `test/main.c` pour activer (décommenter) le plus de tests possible.
-
-Il ne vous est pas permis :
-- De modifier les fichiers d'en-tête `lib/vector.h` et `lib/vector_api.h`.
-
-En tout temps:
-- Votre code doit réussir 100% des tests activés (décommentés), même si ce n'est pas l'entièreté des tests, avant d'être intégré dans la branche `master`.
-- Le badge apparaissant tout en haut de ce document doit afficher `passing`.
-
+1. Implémenter correctement toutes les fonctions de la bibliothèque logicielle `libvector` pour que le programme `build/test` affiche que tous les tests décommentés passent avec succès et retourne `0` à l'invite de commande.
 
 ## Instructions de travail
 
@@ -114,16 +99,16 @@ Chacun des membres du binôme devra suivre ces instructions au moins une fois.
 1. Si le résultat échoue, vous devez réparer le problème sur votre branche dans votre dépôt local et apporter les modifications nécéssaires.
     - Si la fenêtre vous montre ceci, **vous ne devez pas fusionner votre branche** :
     ![Intégration Conitnue échoue](https://user-images.githubusercontent.com/1580647/75869715-421b7100-5e0a-11ea-81b1-50854cc01c7b.png)
-1. Demander à votre co-équipier(ère) de passer en revue vos modifications, de suggérer des améliorations si besoin est et, ultimement, d'approuver.
+1. Demandez à votre co-équipier(ère) de passer en revue vos modifications, de suggérer des améliorations si besoin est et, ultimement, d'approuver.
     - Suivez [ces instructions](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review) pour demander une révision.
     - Suivez [ces instructions](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request) quand on vous demande de faire une révision.
-1. **Quand la compilation et les test automatiques auront réussi et que votre co-équipier(ère) aura approuvé votre Pull Request**, fusionnez la branche de travail sur GitHub.
+1. **Quand la compilation et les test automatiques auront réussi et que votre co-équipier·ère aura approuvé votre Pull Request**, fusionnez la branche de travail sur GitHub.
     - Suivez [ces instructions](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github).
     - Choisissez `Create a merge commit` à l'étape 3.
 1. Revenez sur la branche `master` de votre dépôt local et synchronisez-la avec la branche `master` de votre dépôt sur GitHub.
     - `$ git checkout master`
     - `$ git pull origin master`
-1. Répétez ces étapes jusqu'à ce que tous les tests passent.
+1. Répétez ces étapes jusqu'à ce que tous les tests soient activés (décommentés).
 
 Avec la commande `$ git log --all --decorate --graph --pretty=format:"%ar (%an) %s"`, l'historique de votre travail devrait au fil du temps ressembler à ceci (lire du bas vers le haut) :
 
@@ -154,6 +139,33 @@ Avec la commande `$ git log --all --decorate --graph --pretty=format:"%ar (%an) 
 
 Remarquez que les deux collaborateurs contribuent au même dépôt.
 
+Il vous est permis :
+- De modifier le fichier `README.md` pour modifier l'URL du badge en en-tête.
+- De modifier le fichier `makefile` pour compiler et lier les cibles prédéfinies et ajouter d'autres cibles si nécessaire.
+- De modifier le fichier `lib/vector_types.h` pour ajouter au contenu des structures `vector` et `iterator` si nécessaire.
+- De modifier le fichier `lib/vector_api.c` afin d'implémenter les fonctions qu'il contient.
+- De modifier le fichier `test/main.c` pour activer (décommenter) le plus de tests possible.
+
+Il ne vous est pas permis :
+- De modifier les fichiers d'en-tête `lib/vector.h` et `lib/vector_api.h`.
+
+En tout temps:
+- Votre code doit réussir 100% des tests activés (décommentés), même si ce n'est pas l'entièreté des tests, avant d'être intégré dans la branche `master`.
+- Le badge apparaissant tout en haut de ce document doit afficher `passing`.
+
+## Évaluation
+
+L'évaluation portera sur :
+
+1. Le suivi des instructions de travail.
+    - Je dois voir des contributions à la base de code par tous les membres de votre groupe.
+1. Le nombre de tests réussis.
+    - Vos fichiers `lib/vector_types.h` et `lib/vector_api.c` seront compilés et liés avec le fichier `lib/vector_api.h` intact et avec le fichier `test/main.c` ayant tous ses tests activés (décommentés).
+1. La qualité des modifications apportées.
+
+Attention !
+*Seul le code de la branche `master` de votre dépôt commun sur [GitHub](https://github.com) compte !*
+
 ## Questions-Réponses
 
 ### «J'ai un problème !»
@@ -166,15 +178,3 @@ Un excellent outil disponible pour Linux est [`valgrind`](https://valgrind.org/)
 En autres choses, `valgrind` peut faire une analyse de possibles erreurs de mémoires de notre programme.
 Ce n'est pas une analsye du code mais une analyse ex post facto une fois que notre programme a terminé son exécution.
 Un bon petit tuto se trouve [ici](https://stackoverflow.com/questions/5134891/how-do-i-use-valgrind-to-find-memory-leaks).
-
-## Évaluation
-
-L'évaluation portera sur :
-1. Le suivi des instructions de travail.
-    - Je dois voir des contributions à la base de code par tous les membres de votre groupe.
-1. Le nombre de tests réussis.
-    - Vos fichiers `lib/vector_types.h` et `lib/vector_api.c` seront compilés et liés avec le fichier `lib/vector_api.h` intact et avec le fichier `test/main.c` ayant tous ses tests activés (décommentés).
-1. La qualité des modifications apportées.
-
-Attention !
-*Seul le code de votre dépôt sur [GitHub](https://github.com) compte !*
