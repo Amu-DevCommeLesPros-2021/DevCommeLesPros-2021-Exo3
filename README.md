@@ -11,6 +11,9 @@ Modèle de départ pour exercices d'introduction au travail par équipe avec Git
     - [Pour cloner le dépôt deux membres du binôme](#pour-cloner-le-d%C3%A9p%C3%B4t-deux-membres-du-bin%C3%B4me)
 - [Objectif](#objectif)
 - [Instructions de travail](#instructions-de-travail)
+    - [Ce qui est permis](#ce-qui-est-permis)
+    - [Ce qui ne l'est pas](#ce-qui-ne-lest-pas)
+    - [En tout temps](#en-tout-temps)
 - [Évaluation](#%C3%A9valuation)
 - [Questions-Réponses](#questions-r%C3%A9ponses)
     - [«J'ai un problème !»](#%C2%ABjai-un-probl%C3%A8me-%C2%BB)
@@ -139,17 +142,19 @@ Avec la commande `$ git log --all --decorate --graph --pretty=format:"%ar (%an) 
 
 Remarquez que les deux collaborateurs contribuent au même dépôt.
 
-Il vous est permis :
+### Ce qui est permis
+
 - De modifier le fichier `README.md` pour modifier l'URL du badge en en-tête.
 - De modifier le fichier `makefile` pour compiler et lier les cibles prédéfinies et ajouter d'autres cibles si nécessaire.
 - De modifier le fichier `lib/vector_types.h` pour ajouter au contenu des structures `vector` et `iterator` si nécessaire.
 - De modifier le fichier `lib/vector_api.c` afin d'implémenter les fonctions qu'il contient.
 - De modifier le fichier `test/main.c` pour activer (décommenter) le plus de tests possible.
 
-Il ne vous est pas permis :
+### Ce qui ne l'est pas
 - De modifier les fichiers d'en-tête `lib/vector.h` et `lib/vector_api.h`.
+- D'utiliser `goto` et d'avoir des «boucles infinies» du style `while(1)`. Pourquoi ? La réponse est [ici](https://github.com/Amu-DevCommeLesPros-2021/DevCommeLesPros-2021-Exo1#pourquoi-pas-de-goto-ou-de-boucles-infinies-).
 
-En tout temps:
+### En tout temps
 - Votre code doit réussir 100% des tests activés (décommentés), même si ce n'est pas l'entièreté des tests, avant d'être intégré dans la branche `master`.
 - Le badge apparaissant tout en haut de ce document doit afficher `passing`.
 
