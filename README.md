@@ -17,6 +17,7 @@ Modèle de départ pour exercices d'introduction au travail par équipe avec Git
 - [Évaluation](#%C3%A9valuation)
 - [Questions-Réponses](#questions-r%C3%A9ponses)
     - [«J'ai un problème !»](#%C2%ABjai-un-probl%C3%A8me-%C2%BB)
+    - [«Le fichier main.c échoue la compilation avec une erreur d'arithmétique de pointeur.»](#%C2%ABle-fichier-mainc-%C3%A9choue-la-compilation-avec-une-erreur-darithm%C3%A9tique-de-pointeur%C2%BB)
     - [«J'ai des problèmes avec la manipulation de mémoire dynamique.»](#%C2%ABjai-des-probl%C3%A8mes-avec-la-manipulation-de-m%C3%A9moire-dynamique%C2%BB)
 
 <!-- /TOC -->
@@ -177,6 +178,21 @@ Attention !
 
 Voyez les indications données dans le [premier exercice](https://github.com/Amu-DevCommeLesPros-2021/DevCommeLesPros-2021-Exo1#jai-un-probl%C3%A8me-) à ce sujet.
 
+### «Le fichier `main.c` échoue la compilation avec une erreur d'arithmétique de pointeur.»
+
+Si vous avez une erreur qui ressemble à ceci pour la ligne 67 du fichier `main.c` :
+
+```
+error: arithmetic on a pointer to void is a GNU extension [-Werror,-Wpointer-arith]
+TEST(b1.element + size(v1) * sizeof(int) == e1.element);
+     ~~~~~~~~~~ ^
+```
+
+Ajoutez l'option `-Wno-pointer-arith` à la ligne de commande de `gcc` pour passer outre :
+
+```
+gcc [autre options] -Wno-pointer-arith [etc.]
+```
 ### «J'ai des problèmes avec la manipulation de mémoire dynamique.»
 
 Un excellent outil disponible pour Linux est [`valgrind`](https://valgrind.org/).
