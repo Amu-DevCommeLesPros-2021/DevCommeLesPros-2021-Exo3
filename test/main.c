@@ -12,7 +12,7 @@ int const test_column_width = 40;
 
 int main()
 {
-    float const growth_factor_doubling = 2.;
+    // float const growth_factor_doubling = 2.;
 
     // Tests de la fonction 'make_vector', 'size' et 'capacity'.
     {
