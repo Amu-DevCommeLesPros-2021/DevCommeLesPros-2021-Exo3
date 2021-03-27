@@ -246,13 +246,13 @@ int main()
 
         // // Après 'clear', la taille est de zéro mais la capacité reste inchangée.
         // size_t const old_capacity = capacity(v);
-        // clear(&v);  // v = []
+        // clear(&v);  // v = [XX, XX, XX, XX, XX]
         // TEST(size(v) == 0);
         // TEST(capacity(v) == old_capacity);
         // TEST(compare(begin(&v), end(&v)) == 0);
 
         // // Échange les deux vecteurs.
-        // swap(&v, &v_copie);     // v = [0, 1, 2, 3, 4], v_copie = []
+        // swap(&v, &v_copie);     // v = [0, 1, 2, 3, 4], v_copie = [XX, XX, XX, XX, XX]
         // TEST(size(v) == 5);
         // TEST(size(v_copie) == 0);
 
